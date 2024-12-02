@@ -1,11 +1,10 @@
-import React from 'react';
-import { BookHeart, BookMarked, Rss } from 'lucide-react';
+import { BookHeart, Rss } from 'lucide-react';
 import { bioContent } from '../data/bioContent';
 
 function StravaIcon({ className }: { className?: string }) {
   return (
-    <svg 
-      viewBox="0 0 24 24" 
+    <svg
+      viewBox="0 0 24 24"
       className={className}
       fill="currentColor"
     >
@@ -24,16 +23,16 @@ export function Bio() {
         </div>
         <div className="flex items-center gap-4">
           {bioContent.socialLinks.map(link => {
-            const Icon = link.platform === 'strava' 
-              ? StravaIcon 
+            const Icon = link.platform === 'strava'
+              ? StravaIcon
               : Rss;
-            
-            const hoverColor = link.platform === 'strava' 
-              ? 'hover:text-[#FC4C02]' 
+
+            const hoverColor = link.platform === 'strava'
+              ? 'hover:text-[#FC4C02]'
               : 'hover:text-indigo-600';
-            
+
             const title = `Follow me on ${link.platform.charAt(0).toUpperCase() + link.platform.slice(1)}`;
-            
+
             return (
               <a
                 key={link.platform}
@@ -49,7 +48,10 @@ export function Bio() {
           })}
         </div>
       </div>
-      <p className="text-gray-600 leading-relaxed">{bioContent.text}</p>
+      <p
+        className="text-gray-600 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: bioContent.text }}
+      />
     </div>
   );
 }
