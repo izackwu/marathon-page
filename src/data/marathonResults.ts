@@ -38,6 +38,20 @@ export const marathonResults: MarathonResult[] = [
     },
   },
   {
+    name: "Melbourne Marathon",
+    date: createISODate("2023-10-15"),
+    type: "half",
+    finishTime: createDuration("02:07:11"),
+    location: locations.melbourne,
+    weather: {
+      feelsLike: 12,
+      condition: "Cloudy",
+    },
+    course: {
+      elevation: "flat",
+    },
+  },
+  {
     name: "HK–Zhuhai–Macao Bridge Half Marathon",
     date: createISODate("2023-11-19"),
     type: "half",

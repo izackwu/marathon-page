@@ -34,4 +34,12 @@ export const locations: Record<string, Location> = {
     },
     country: "China",
   },
+  melbourne: {
+    name: "Melbourne",
+    coordinates: {
+      lat: -37.8142454,
+      lng: 144.9631732,
+    },
+    country: "Australia",
+  },
 };
