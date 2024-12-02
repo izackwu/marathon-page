@@ -2,59 +2,35 @@ import { Location } from '../types/marathon';
 
 export const locations: Record<string, Location> = {
   singapore: {
-    name: 'Singapore',
+    name: "Singapore",
     coordinates: {
-      lat: 1.3521,
-      lng: 103.8198
+      lat: 1.357107,
+      lng: 103.8194992,
     },
-    country: 'Singapore'
+    country: "Singapore",
   },
   sydney: {
-    name: 'Sydney',
+    name: "Sydney",
     coordinates: {
-      lat: -33.8688,
-      lng: 151.2093
+      lat: -33.8698439,
+      lng: 151.2082848,
     },
-    country: 'Australia'
-  },
-  wuhan: {
-    name: 'Wuhan',
-    coordinates: {
-      lat: 30.5928,
-      lng: 114.3055
-    },
-    country: 'China'
+    country: "Australia",
   },
   goldCoast: {
-    name: 'Gold Coast',
+    name: "Gold Coast",
     coordinates: {
-      lat: -28.0167,
-      lng: 153.4000
+      lat: -28.0023731,
+      lng: 153.4145987,
     },
-    country: 'Australia'
+    country: "Australia",
   },
-  tokyo: {
-    name: 'Tokyo',
+  hongKong: {
+    name: "Hong Kong",
     coordinates: {
-      lat: 35.6762,
-      lng: 139.6503
+      lat: 22.350627,
+      lng: 114.1849161,
     },
-    country: 'Japan'
+    country: "China",
   },
-  berlin: {
-    name: 'Berlin',
-    coordinates: {
-      lat: 52.5200,
-      lng: 13.4050
-    },
-    country: 'Germany'
-  },
-  bangkok: {
-    name: 'Bangkok',
-    coordinates: {
-      lat: 13.7563,
-      lng: 100.5018
-    },
-    country: 'Thailand'
-  }
 };

@@ -1,38 +1,26 @@
 import { UpcomingRace } from '../types/marathon';
 import { locations } from './locations';
-import { createISODate, createDuration } from '../utils/dateUtils';
+import { createISODate } from "../utils/dateUtils";
 
 export const upcomingRaces: UpcomingRace[] = [
   {
-    name: 'Tokyo Marathon',
-    date: createISODate('2025-03-02'),
-    type: 'full',
+    name: "Gold Coast Marathon",
+    date: createISODate("2025-07-06"),
+    type: "full",
     location: {
-      name: locations.tokyo.name,
-      country: locations.tokyo.country
+      name: locations.goldCoast.name,
+      country: locations.goldCoast.country,
     },
-    goalTime: createDuration('04:05:00'),
-    notes: 'One of the World Marathon Majors'
+    notes: "Fast and flat course. Looking for a PB.",
   },
   {
-    name: 'Berlin Marathon',
-    date: createISODate('2025-09-28'),
-    type: 'full',
+    name: "Sydney Marathon",
+    date: createISODate("2025-08-31"),
+    type: "full",
     location: {
-      name: locations.berlin.name,
-      country: locations.berlin.country
+      name: locations.sydney.name,
+      country: locations.sydney.country,
     },
-    notes: 'Fast and flat course'
+    notes: "Maybe my first World Marathon Major?",
   },
-  {
-    name: 'Bangkok Midnight Marathon',
-    date: createISODate('2024-12-08'),
-    type: 'half',
-    location: {
-      name: locations.bangkok.name,
-      country: locations.bangkok.country
-    },
-    goalTime: createDuration('02:15:00'),
-    notes: 'Night race'
-  }
 ];
