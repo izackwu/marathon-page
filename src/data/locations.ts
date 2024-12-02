@@ -1,5 +1,6 @@
 import { Location } from '../types/marathon';
 
+// Use https://www.gps-coordinates.net/ to get the coordinates when adding a new location.
 export const locations: Record<string, Location> = {
   singapore: {
     name: "Singapore",

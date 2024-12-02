@@ -1,6 +1,12 @@
-import { MarathonResult } from '../types/marathon';
-import { locations } from './locations';
-import { createISODate, createDuration } from '../utils/dateUtils';
+import { MarathonResult } from "../types/marathon";
+import { locations } from "./locations";
+import { createISODate, createDuration } from "../utils/dateUtils";
+
+// The past weather data is not very accurate, and specifically, the "feels like"
+// temperature is not always available and I have to manually generate it based
+// on the temperature and humidity.
+//
+// I will need to keep a record of the race day weather for the future races.
 
 export const marathonResults: MarathonResult[] = [
   {
