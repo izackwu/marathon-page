@@ -7,7 +7,7 @@ import { getElevationIcon } from '../utils/elevationUtils';
 import { getCountryFlag } from '../utils/countryUtils';
 import { calculatePace } from '../utils/paceUtils';
 
-type SortField = 'date' | 'finishTime' | 'elevation' | 'pace';
+type SortField = 'date' | 'elevation' | 'pace';
 type SortDirection = 'asc' | 'desc';
 
 interface ResultsTableProps {
@@ -23,8 +23,6 @@ export function ResultsTable({ results }: ResultsTableProps) {
     switch (sortField) {
       case 'date':
         return multiplier * (new Date(a.date).getTime() - new Date(b.date).getTime());
-      case 'finishTime':
-        return multiplier * a.finishTime.localeCompare(b.finishTime);
       case 'elevation':
         const elevationCompare = a.course.elevation.localeCompare(b.course.elevation);
         if (elevationCompare !== 0) return multiplier * elevationCompare;
@@ -75,8 +73,8 @@ export function ResultsTable({ results }: ResultsTableProps) {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Location
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <SortButton field="finishTime">FINISH TIME</SortButton>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                FINISH TIME
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 <SortButton field="pace">AVG PACE</SortButton>
@@ -97,7 +95,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    result.type === 'full' 
+                    result.type === 'full'
                       ? 'bg-indigo-100 text-indigo-800'
                       : 'bg-emerald-100 text-emerald-800'
                   }`}>
