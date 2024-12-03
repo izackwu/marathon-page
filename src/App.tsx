@@ -8,20 +8,21 @@ import { upcomingRaces } from './data/upcomingRaces';
 import { bioContent } from './data/bioContent';
 import { UpcomingRaces } from './components/UpcomingRaces';
 import { MarathonStats } from './types/marathon';
+import { Footer } from './components/Footer';
 
 function calculateStats(results: typeof marathonResults): MarathonStats {
-  const sortedResults = [...results].sort((a, b) => 
+  const sortedResults = [...results].sort((a, b) =>
     new Date(a.date).getTime() - new Date(b.date).getTime()
   );
-  
+
   const halfMarathons = results.filter(r => r.type === 'half');
   const fullMarathons = results.filter(r => r.type === 'full');
-  
+
   const nextRace = upcomingRaces.length > 0 ? upcomingRaces[0].date : undefined;
 
   return {
     totalRaces: results.length,
-    bestHalfTime: halfMarathons.length > 0 
+    bestHalfTime: halfMarathons.length > 0
       ? halfMarathons.reduce((best, curr) => curr.finishTime < best ? curr.finishTime : best, halfMarathons[0].finishTime)
       : undefined,
     bestFullTime: fullMarathons.length > 0
@@ -48,7 +49,7 @@ function App() {
           <StatsCard stats={stats} />
 
           <TabView results={marathonResults} />
-          
+
           {upcomingRaces.length > 0 && (
             <div>
               <h2 className="text-xl font-semibold text-gray-900 mb-4">
@@ -69,6 +70,7 @@ function App() {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );
