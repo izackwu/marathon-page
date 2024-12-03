@@ -1,5 +1,5 @@
-import { UpcomingRace } from '../types/marathon';
-import { locations } from './locations';
+import { UpcomingRace } from "../types/marathon";
+import { locations } from "./locations";
 import { createISODate } from "../utils/dateUtils";
 
 export const upcomingRaces: UpcomingRace[] = [

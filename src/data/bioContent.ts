@@ -1,5 +1,5 @@
 interface SocialLink {
-  platform: 'strava' | 'blog';
+  platform: "strava" | "blog";
   url: string;
 }
 

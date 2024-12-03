@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import { ArrowUpDown } from 'lucide-react';
-import { UpcomingRace } from '../types/marathon';
-import { formatDuration, formatDate } from '../utils/dateUtils';
-import { getCountryFlag } from '../utils/countryUtils';
+import React, { useState } from "react";
+import { ArrowUpDown } from "lucide-react";
+import { UpcomingRace } from "../types/marathon";
+import { formatDuration, formatDate } from "../utils/dateUtils";
+import { getCountryFlag } from "../utils/countryUtils";
 
 interface UpcomingRacesProps {
   races: UpcomingRace[];
 }
 
 export function UpcomingRaces({ races }: UpcomingRacesProps) {
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
   const sortedRaces = [...races].sort((a, b) => {
-    const multiplier = sortDirection === 'asc' ? 1 : -1;
-    return multiplier * (new Date(a.date).getTime() - new Date(b.date).getTime());
+    const multiplier = sortDirection === "asc" ? 1 : -1;
+    return (
+      multiplier * (new Date(a.date).getTime() - new Date(b.date).getTime())
+    );
   });
 
   return (
@@ -24,7 +26,11 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 <button
-                  onClick={() => setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc')}
+                  onClick={() =>
+                    setSortDirection((prev) =>
+                      prev === "asc" ? "desc" : "asc",
+                    )
+                  }
                   className="flex items-center gap-1 hover:text-gray-700"
                 >
                   Date
@@ -50,17 +56,22 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {sortedRaces.map((race) => (
-              <tr key={`${race.date}-${race.name}`} className="hover:bg-gray-50">
+              <tr
+                key={`${race.date}-${race.name}`}
+                className="hover:bg-gray-50"
+              >
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {formatDate(race.date)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    race.type === 'full' 
-                      ? 'bg-indigo-100 text-indigo-800'
-                      : 'bg-emerald-100 text-emerald-800'
-                  }`}>
-                    {race.type === 'full' ? 'Marathon' : 'Half Marathon'}
+                  <span
+                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      race.type === "full"
+                        ? "bg-indigo-100 text-indigo-800"
+                        : "bg-emerald-100 text-emerald-800"
+                    }`}
+                  >
+                    {race.type === "full" ? "Marathon" : "Half Marathon"}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -68,17 +79,22 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   <div className="flex items-center gap-2">
-                    {React.createElement(getCountryFlag(race.location.country, race.location.name), {
-                      className: "w-4 h-4"
-                    })}
-                    <span>{race.location.name}, {race.location.country}</span>
+                    {React.createElement(
+                      getCountryFlag(race.location.country, race.location.name),
+                      {
+                        className: "w-4 h-4",
+                      },
+                    )}
+                    <span>
+                      {race.location.name}, {race.location.country}
+                    </span>
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {race.goalTime ? formatDuration(race.goalTime) : '-'}
+                  {race.goalTime ? formatDuration(race.goalTime) : "-"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {race.notes || '-'}
+                  {race.notes || "-"}
                 </td>
               </tr>
             ))}

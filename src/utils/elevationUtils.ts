@@ -1,10 +1,10 @@
-import { MountainSnow, ChartNoAxesGantt } from 'lucide-react';
+import { MountainSnow, ChartNoAxesGantt } from "lucide-react";
 
-export function getElevationIcon(elevation: 'flat' | 'hilly') {
+export function getElevationIcon(elevation: "flat" | "hilly") {
   switch (elevation.toLowerCase()) {
-    case 'hilly':
+    case "hilly":
       return MountainSnow;
-    case 'flat':
+    case "flat":
       return ChartNoAxesGantt;
     default:
       return ChartNoAxesGantt;

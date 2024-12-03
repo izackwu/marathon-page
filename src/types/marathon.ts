@@ -13,7 +13,7 @@ export interface Location {
 export interface MarathonResult {
   name: string;
   date: ISODateString;
-  type: 'half' | 'full';
+  type: "half" | "full";
   finishTime: DurationString;
   location: Location;
   weather: {
@@ -21,7 +21,7 @@ export interface MarathonResult {
     condition: string; // e.g., "Sunny", "Rainy", "Cloudy"
   };
   course: {
-    elevation: 'flat' | 'hilly';
+    elevation: "flat" | "hilly";
     elevationGain?: number; // in meters
   };
 }
@@ -39,8 +39,8 @@ export interface MarathonStats {
 export interface UpcomingRace {
   name: string;
   date: ISODateString;
-  type: 'half' | 'full';
-  location: Omit<Location, 'coordinates'>;
+  type: "half" | "full";
+  location: Omit<Location, "coordinates">;
   goalTime?: DurationString;
   notes?: string; // Optional additional information
 }
