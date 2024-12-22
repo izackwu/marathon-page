@@ -42,4 +42,12 @@ export const locations: Record<string, Location> = {
     },
     country: "Australia",
   },
+  wuhan: {
+    name: "Wuhan",
+    coordinates: {
+      lat: 30.5951051,
+      lng: 114.2999353,
+    },
+    country: "China",
+  }
 };
