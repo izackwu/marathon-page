@@ -5,7 +5,7 @@ import { createISODate } from "../utils/dateUtils";
 export const upcomingRaces: UpcomingRace[] = [
   {
     name: "Wuhan Marathon",
-    date: createISODate("2024-03-23"),
+    date: createISODate("2025-03-23"),
     type: "full",
     location: {
       name: locations.wuhan.name,
