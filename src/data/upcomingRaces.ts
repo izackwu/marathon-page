@@ -14,6 +14,16 @@ export const upcomingRaces: UpcomingRace[] = [
     notes: "My first marathon in China",
   },
   {
+    name: "2XU Compression Run",
+    date: createISODate("2025-04-27"),
+    type: "half",
+    location: {
+      name: locations.singapore.name,
+      country: locations.singapore.country,
+    },
+    notes: "Take it easy",
+  },
+  {
     name: "Gold Coast Marathon",
     date: createISODate("2025-07-06"),
     type: "full",
