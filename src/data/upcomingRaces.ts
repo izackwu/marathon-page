@@ -4,16 +4,6 @@ import { createISODate } from "../utils/dateUtils";
 
 export const upcomingRaces: UpcomingRace[] = [
   {
-    name: "Wuhan Marathon",
-    date: createISODate("2025-03-23"),
-    type: "full",
-    location: {
-      name: locations.wuhan.name,
-      country: locations.wuhan.country,
-    },
-    notes: "My first marathon in China",
-  },
-  {
     name: "2XU Compression Run",
     date: createISODate("2025-04-27"),
     type: "half",
@@ -41,6 +31,6 @@ export const upcomingRaces: UpcomingRace[] = [
       name: locations.sydney.name,
       country: locations.sydney.country,
     },
-    notes: "Maybe my first World Marathon Major?",
+    notes: "My first world marathon major",
   },
 ];

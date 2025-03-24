@@ -94,4 +94,18 @@ export const marathonResults: MarathonResult[] = [
       elevation: "flat",
     },
   },
+  {
+    name: "Wuhan Marathon",
+    date: createISODate("2025-03-23"),
+    type: "full",
+    finishTime: createDuration("03:29:25"),
+    location: locations.wuhan,
+    weather: {
+      feelsLike: 18,
+      condition: "Rainy",
+    },
+    course: {
+      elevation: "flat",
+    },
+  },
 ];
