@@ -41,6 +41,5 @@ export interface UpcomingRace {
   date: ISODateString;
   type: "half" | "full";
   location: Omit<Location, "coordinates">;
-  goalTime?: DurationString;
   notes?: string; // Optional additional information
 }

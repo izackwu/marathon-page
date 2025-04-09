@@ -32,7 +32,7 @@ export const locations: Record<string, Location> = {
       lat: 22.350627,
       lng: 114.1849161,
     },
-    country: "China",
+    country: "Hong Kong",
   },
   melbourne: {
     name: "Melbourne",
@@ -49,5 +49,5 @@ export const locations: Record<string, Location> = {
       lng: 114.2999353,
     },
     country: "China",
-  }
+  },
 };

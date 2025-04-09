@@ -28,7 +28,7 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                 <button
                   onClick={() =>
                     setSortDirection((prev) =>
-                      prev === "asc" ? "desc" : "asc",
+                      prev === "asc" ? "desc" : "asc"
                     )
                   }
                   className="flex items-center gap-1 hover:text-gray-700"
@@ -45,9 +45,6 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Location
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Goal Time
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Notes
@@ -80,18 +77,13 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   <div className="flex items-center gap-2">
                     {React.createElement(
-                      getCountryFlag(race.location.country, race.location.name),
+                      getCountryFlag(race.location.country),
                       {
                         className: "w-4 h-4",
-                      },
+                      }
                     )}
-                    <span>
-                      {race.location.name}, {race.location.country}
-                    </span>
+                    <span>{race.location.name}</span>
                   </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {race.goalTime ? formatDuration(race.goalTime) : "-"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {race.notes || "-"}

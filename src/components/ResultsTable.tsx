@@ -88,7 +88,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Location
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 FINISH TIME
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -128,17 +128,12 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   <div className="flex items-center gap-2">
                     {React.createElement(
-                      getCountryFlag(
-                        result.location.country,
-                        result.location.name,
-                      ),
+                      getCountryFlag(result.location.country),
                       {
                         className: "w-4 h-4",
-                      },
+                      }
                     )}
-                    <span>
-                      {result.location.name}, {result.location.country}
-                    </span>
+                    <span>{result.location.name}</span>
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -153,7 +148,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                       getWeatherIcon(result.weather.condition),
                       {
                         className: "w-4 h-4 text-gray-400",
-                      },
+                      }
                     )}
                     <span>{result.weather.condition}</span>
                     <span className="text-xs text-gray-500">
@@ -167,7 +162,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                       getElevationIcon(result.course.elevation),
                       {
                         className: "w-4 h-4 text-gray-400",
-                      },
+                      }
                     )}
                     <span className="capitalize">
                       {result.course.elevation}
