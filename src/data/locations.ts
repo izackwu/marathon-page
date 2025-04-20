@@ -50,4 +50,12 @@ export const locations: Record<string, Location> = {
     },
     country: "China",
   },
+  kobe: {
+    name: "Kobe",
+    coordinates: {
+      lat: 34.6932379,
+      lng: 135.1943764,
+    },
+    country: "Japan",
+  }
 };
