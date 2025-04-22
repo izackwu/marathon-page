@@ -42,5 +42,5 @@ export const upcomingRaces: UpcomingRace[] = [
       country: locations.kobe.country,
     },
     notes: "Getting a taste of the running culture in Japan",
-  }
+  },
 ];

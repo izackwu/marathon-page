@@ -131,7 +131,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                       getCountryFlag(result.location.country),
                       {
                         className: "w-4 h-4",
-                      }
+                      },
                     )}
                     <span>{result.location.name}</span>
                   </div>
@@ -148,7 +148,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                       getWeatherIcon(result.weather.condition),
                       {
                         className: "w-4 h-4 text-gray-400",
-                      }
+                      },
                     )}
                     <span>{result.weather.condition}</span>
                     <span className="text-xs text-gray-500">
@@ -162,7 +162,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                       getElevationIcon(result.course.elevation),
                       {
                         className: "w-4 h-4 text-gray-400",
-                      }
+                      },
                     )}
                     <span className="capitalize">
                       {result.course.elevation}

@@ -68,10 +68,7 @@ export function MapView({ results }: MapViewProps) {
                 <div className="text-sm">
                   <div className="flex items-center gap-2 mb-3">
                     {React.createElement(
-                      getCountryFlag(
-                        races[0].location.country,
-                        races[0].location.name,
-                      ),
+                      getCountryFlag(races[0].location.country),
                       {
                         className: "w-4 h-4",
                       },

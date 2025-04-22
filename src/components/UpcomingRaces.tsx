@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ArrowUpDown } from "lucide-react";
 import { UpcomingRace } from "../types/marathon";
-import { formatDuration, formatDate } from "../utils/dateUtils";
+import { formatDate } from "../utils/dateUtils";
 import { getCountryFlag } from "../utils/countryUtils";
 
 interface UpcomingRacesProps {
@@ -28,7 +28,7 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                 <button
                   onClick={() =>
                     setSortDirection((prev) =>
-                      prev === "asc" ? "desc" : "asc"
+                      prev === "asc" ? "desc" : "asc",
                     )
                   }
                   className="flex items-center gap-1 hover:text-gray-700"
@@ -80,7 +80,7 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                       getCountryFlag(race.location.country),
                       {
                         className: "w-4 h-4",
-                      }
+                      },
                     )}
                     <span>{race.location.name}</span>
                   </div>

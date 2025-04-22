@@ -57,5 +57,5 @@ export const locations: Record<string, Location> = {
       lng: 135.1943764,
     },
     country: "Japan",
-  }
+  },
 };

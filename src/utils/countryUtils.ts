@@ -8,5 +8,5 @@ countries.registerLocale(en);
 
 export function getCountryFlag(country: string): FlagComponent {
   const code = countries.getAlpha2Code(country, "en") as keyof typeof flags;
-  return code ? flags[code] : flags.UN; // Fallback to UN flag if country not found
+  return flags[code];
 }
