@@ -14,6 +14,16 @@ export const upcomingRaces: UpcomingRace[] = [
     notes: "Fast and flat course. Looking for a PB.",
   },
   {
+    name: "Lazada Run",
+    date: createISODate("2025-07-27"),
+    type: "half",
+    location: {
+      name: locations.singapore.name,
+      country: locations.singapore.country,
+    },
+    notes: "Make it a fun run."
+  },
+  {
     name: "Sydney Marathon",
     date: createISODate("2025-08-31"),
     type: "full",
