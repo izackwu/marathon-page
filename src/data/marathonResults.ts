@@ -108,4 +108,18 @@ export const marathonResults: MarathonResult[] = [
       elevation: "flat",
     },
   },
+  {
+    name: "2XU Compression Run",
+    date: createISODate("2025-04-27"),
+    type: "half",
+    finishTime: createDuration("01:44:56"),
+    location: locations.singapore,
+    weather: {
+      feelsLike: 28,
+      condition: "Cloudy" // before sunrise
+    },
+    course: {
+      elevation: "flat",
+    },
+  },
 ];
