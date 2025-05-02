@@ -33,7 +33,7 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                   }
                   className="flex items-center gap-1 hover:text-gray-700"
                 >
-                  Date
+                  DATE
                   <ArrowUpDown className="w-4 h-4" />
                 </button>
               </th>
