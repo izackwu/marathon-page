@@ -1,4 +1,3 @@
-import React from "react";
 import { Clock, Calendar, Trophy, Medal, Globe2, Timer } from "lucide-react";
 import { MarathonStats } from "../types/marathon";
 import { formatTimeAgo, formatDuration } from "../utils/dateUtils";

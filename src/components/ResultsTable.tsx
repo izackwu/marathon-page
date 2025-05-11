@@ -3,11 +3,10 @@ import { MarathonResult } from "../types/marathon";
 import { formatDuration, formatDate } from "../utils/dateUtils";
 import { ArrowUpDown } from "lucide-react";
 import { getWeatherIcon } from "../utils/weatherUtils";
-import { getElevationIcon } from "../utils/elevationUtils";
 import { getCountryFlag } from "../utils/countryUtils";
 import { calculatePace } from "../utils/paceUtils";
 
-type SortField = "date" | "elevation" | "pace";
+type SortField = "date" | "pace";
 type SortDirection = "asc" | "desc";
 
 interface ResultsTableProps {
@@ -25,16 +24,6 @@ export function ResultsTable({ results }: ResultsTableProps) {
         return (
           multiplier * (new Date(a.date).getTime() - new Date(b.date).getTime())
         );
-      case "elevation": {
-        const elevationCompare = a.course.elevation.localeCompare(
-          b.course.elevation,
-        );
-        if (elevationCompare !== 0) return multiplier * elevationCompare;
-        return (
-          multiplier *
-          ((a.course.elevationGain || 0) - (b.course.elevationGain || 0))
-        );
-      }
       case "pace": {
         const paceA = calculatePace(a.finishTime, a.type);
         const paceB = calculatePace(b.finishTime, b.type);
@@ -97,9 +86,6 @@ export function ResultsTable({ results }: ResultsTableProps) {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Weather
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <SortButton field="elevation">ELEVATION</SortButton>
-              </th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -154,24 +140,6 @@ export function ResultsTable({ results }: ResultsTableProps) {
                     <span className="text-xs text-gray-500">
                       (feels like {result.weather.feelsLike}°C)
                     </span>
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  <div className="flex items-center gap-2">
-                    {React.createElement(
-                      getElevationIcon(result.course.elevation),
-                      {
-                        className: "w-4 h-4 text-gray-400",
-                      },
-                    )}
-                    <span className="capitalize">
-                      {result.course.elevation}
-                    </span>
-                    {result.course.elevationGain && (
-                      <span className="text-xs text-gray-500">
-                        ({result.course.elevationGain}m gain)
-                      </span>
-                    )}
                   </div>
                 </td>
               </tr>

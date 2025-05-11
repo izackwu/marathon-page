@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Map, LineChart } from "lucide-react";
 import { MarathonResult } from "../types/marathon";
 import { MapView } from "./MapView";
