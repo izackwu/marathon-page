@@ -22,6 +22,10 @@ export const marathonResults: MarathonResult[] = [
     course: {
       elevation: "flat",
     },
+    specialMarks: [
+      { type: "First_time", description: "My first half marathon!" }
+      , { type: "PB" }
+    ]
   },
   {
     name: "Gold Coast Marathon",
@@ -36,6 +40,9 @@ export const marathonResults: MarathonResult[] = [
     course: {
       elevation: "flat",
     },
+    specialMarks: [
+      { type: "PB", description: "New Personal Best! Thanks to the good weather and flat course." }
+    ]
   },
   {
     name: "Melbourne Marathon",
@@ -79,6 +86,11 @@ export const marathonResults: MarathonResult[] = [
       elevation: "hilly",
       elevationGain: 316,
     },
+    specialMarks: [
+      { type: "First_time", description: "My first full marathon!" }
+      , { type: "PB" }
+      , { type: "Hilly_course", description: "317m elevation gain, 400m elevation loss" }
+    ]
   },
   {
     name: "Singapore Marathon",
@@ -93,6 +105,9 @@ export const marathonResults: MarathonResult[] = [
     course: {
       elevation: "flat",
     },
+    specialMarks: [
+      { type: "Injury", description: "Not fully recovered from the knee injury, and it got worse during the race" }
+    ]
   },
   {
     name: "Wuhan Marathon",
@@ -107,6 +122,9 @@ export const marathonResults: MarathonResult[] = [
     course: {
       elevation: "flat",
     },
+    specialMarks: [
+      { type: "PB", description: "New Personal Best! Pushed really hard." }
+    ]
   },
   {
     name: "2XU Compression Run",
@@ -121,5 +139,8 @@ export const marathonResults: MarathonResult[] = [
     course: {
       elevation: "flat",
     },
+    specialMarks: [
+      { type: "PB" }
+    ]
   },
 ];

@@ -10,6 +10,19 @@ export interface Location {
   country: string;
 }
 
+// define a variant type of special marks, like `PB`, `Hilly_course`, `Injury`, `World_major`, `First_race` etc. Each of these should have an optional description.
+export type SpecialMarkType =
+  | "First_time"
+  | "PB"
+  | "Hilly_course"
+  | "Injury"
+  | "World_major"
+
+export interface SpecialMark {
+  type: SpecialMarkType;
+  description?: string;
+}
+
 export interface MarathonResult {
   name: string;
   date: ISODateString;
@@ -24,6 +37,7 @@ export interface MarathonResult {
     elevation: "flat" | "hilly";
     elevationGain?: number; // in meters
   };
+  specialMarks?: SpecialMark[];
 }
 
 export interface MarathonStats {

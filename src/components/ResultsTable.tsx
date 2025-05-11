@@ -5,6 +5,7 @@ import { ArrowUpDown } from "lucide-react";
 import { getWeatherIcon } from "../utils/weatherUtils";
 import { getCountryFlag } from "../utils/countryUtils";
 import { calculatePace } from "../utils/paceUtils";
+import { convertSpecialMarkToIcon } from "../utils/specialMarkUtils";
 
 type SortField = "date" | "pace";
 type SortDirection = "asc" | "desc";
@@ -86,6 +87,9 @@ export function ResultsTable({ results }: ResultsTableProps) {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Weather
               </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {/* Column for special marks, but there's no need to give it a name */}
+              </th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -99,11 +103,10 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   <span
-                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      result.type === "full"
+                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${result.type === "full"
                         ? "bg-indigo-100 text-indigo-800"
                         : "bg-emerald-100 text-emerald-800"
-                    }`}
+                      }`}
                   >
                     {result.type === "full" ? "Marathon" : "Half Marathon"}
                   </span>
@@ -140,6 +143,23 @@ export function ResultsTable({ results }: ResultsTableProps) {
                     <span className="text-xs text-gray-500">
                       (feels like {result.weather.feelsLike}°C)
                     </span>
+                  </div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <div className="flex gap-2">
+                    {result.specialMarks?.map((mark, index) => {
+                      const { icon: Icon, description } = convertSpecialMarkToIcon(mark);
+                      return (
+                        <div
+                          key={index}
+                          className="flex items-center gap-1"
+                          title={description}
+                        >
+                          <Icon className="w-4 h-4 text-gray-500" />
+                          <span className="sr-only">{description}</span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </td>
               </tr>
