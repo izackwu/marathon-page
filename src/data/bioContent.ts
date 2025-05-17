@@ -12,13 +12,9 @@ export interface BioContent {
 export const bioContent: BioContent = {
   title: import.meta.env.VITE_SITE_TITLE,
   text: `
-  Hey, I'm Zack, and I live in Singapore.
-
-  My marathon journey began in Singapore, where I completed my first half marathon in challenging tropical
-  conditions. Since then, I've been fortunate to run through the streets of various cities across Asia and Oceania,
-  each race teaching me something new about endurance, determination, and the joy of running.
-
-  If you'd like to follow my journey, you can find me on Strava and my personal blog (in Chinese).
+Hey, I'm Zack, a runner based in Singapore. I started running back in high school, but it wasn’t until 2022 that I ran my first race and truly fell in love with long-distance running. These days, running is part of my daily routine, and races are celebratory milestones along the way.
+<br />
+I’m not chasing perfection—just progress. It’s a long road to becoming faster and stronger, but I’ll get there one day.
 `,
   socialLinks: [
     {
