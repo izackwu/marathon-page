@@ -19,9 +19,6 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 28,
       condition: "Rainy",
     },
-    course: {
-      elevation: "flat",
-    },
     specialMarks: [
       { type: "First_time", description: "My first half marathon!" }
       , { type: "PB" }
@@ -37,9 +34,7 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 13,
       condition: "Cloudy",
     },
-    course: {
-      elevation: "flat",
-    },
+
     specialMarks: [
       { type: "PB", description: "New Personal Best! Thanks to the good weather and flat course." }
     ]
@@ -54,9 +49,7 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 12,
       condition: "Cloudy",
     },
-    course: {
-      elevation: "flat",
-    },
+
   },
   {
     name: "HK–Zhuhai–Macao Bridge Half Marathon",
@@ -68,9 +61,7 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 20,
       condition: "Sunny",
     },
-    course: {
-      elevation: "flat",
-    },
+
   },
   {
     name: "Sydney Marathon",
@@ -82,10 +73,7 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 12,
       condition: "Cloudy",
     },
-    course: {
-      elevation: "hilly",
-      elevationGain: 316,
-    },
+
     specialMarks: [
       { type: "First_time", description: "My first full marathon!" }
       , { type: "PB" }
@@ -102,9 +90,7 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 30,
       condition: "Sunny",
     },
-    course: {
-      elevation: "flat",
-    },
+
     specialMarks: [
       { type: "Injury", description: "Not fully recovered from the knee injury, and it got worse during the race" }
     ]
@@ -119,9 +105,7 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 18,
       condition: "Rainy",
     },
-    course: {
-      elevation: "flat",
-    },
+
     specialMarks: [
       { type: "PB", description: "New Personal Best! Pushed really hard." }
     ]
@@ -136,9 +120,7 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 28,
       condition: "Cloudy" // before sunrise
     },
-    course: {
-      elevation: "flat",
-    },
+
     specialMarks: [
       { type: "PB" }
     ]
