@@ -33,10 +33,6 @@ export interface MarathonResult {
     feelsLike: number; // in Celsius
     condition: string; // e.g., "Sunny", "Rainy", "Cloudy"
   };
-  course: {
-    elevation: "flat" | "hilly";
-    elevationGain?: number; // in meters
-  };
   specialMarks?: SpecialMark[];
 }
 
