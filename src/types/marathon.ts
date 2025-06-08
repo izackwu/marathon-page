@@ -10,7 +10,7 @@ export interface Location {
   country: string;
 }
 
-// define a variant type of special marks, like `PB`, `Hilly_course`, `Injury`, `World_major`, `First_race` etc. Each of these should have an optional description.
+// define a variant type of special marks, like `PB`, `Hilly_course`, `Injury`, `World_major`, `First_time` etc. Each of these should have an optional description.
 export type SpecialMarkType =
   | "First_time"
   | "PB"
