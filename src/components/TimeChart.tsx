@@ -100,7 +100,9 @@ export function TimeChart({ results }: TimeChartProps) {
                 (context.dataset.label === "Half Marathon" &&
                   result.type === "half"))
             ) {
-              return `Time: ${formatDuration(result.finishTime)}`;
+              return `Race: ${result.name}, Time: ${formatDuration(
+                result.finishTime,
+              )}`;
             }
             return undefined;
           },
