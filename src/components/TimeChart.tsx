@@ -91,14 +91,16 @@ export function TimeChart({ results }: TimeChartProps) {
       },
       tooltip: {
         callbacks: {
+          afterTitle: (items) => {
+            const idx = items[0].dataIndex;
+            return sortedResults[idx].name;
+          },
           label: (context) => {
             const result = sortedResults[context.dataIndex];
             if (
               result &&
-              ((context.dataset.label === "Full Marathon" &&
-                result.type === "full") ||
-                (context.dataset.label === "Half Marathon" &&
-                  result.type === "half"))
+              ((context.dataset.label === "Full Marathon" && result.type === "full") ||
+               (context.dataset.label === "Half Marathon" && result.type === "half"))
             ) {
               return `Time: ${formatDuration(result.finishTime)}`;
             }
