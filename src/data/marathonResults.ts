@@ -125,4 +125,18 @@ export const marathonResults: MarathonResult[] = [
       { type: "PB" }
     ]
   },
+  {
+    name: "Gold Coast Marathon",
+    date: createISODate("2025-07-06"),
+    type: "full",
+    finishTime: createDuration("03:13:21"),
+    location: locations.goldCoast,
+    weather: {
+      feelsLike: 16,
+      condition: "Cloudy",
+    },
+    specialMarks: [
+      { type: "PB", description: "New Personal Best! Sub 3:15 achieved." }
+    ]
+  },
 ];
