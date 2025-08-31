@@ -139,4 +139,18 @@ export const marathonResults: MarathonResult[] = [
       { type: "PB", description: "New Personal Best! Sub 3:15 achieved." }
     ]
   },
+  {
+    name: "Sydney Marathon",
+    date: createISODate("2025-08-31"),
+    type: "full",
+    finishTime: createDuration("03:32:11"),
+    location: locations.sydney,
+    weather: {
+      feelsLike: 9,
+      condition: "Sunny",
+    },
+    specialMarks: [
+      { type: "World_major", description: "My first Abbott World Marathon Major" }
+    ]
+  },
 ];
