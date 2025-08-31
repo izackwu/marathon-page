@@ -151,6 +151,7 @@ export const marathonResults: MarathonResult[] = [
     },
     specialMarks: [
       { type: "World_major", description: "My first Abbott World Marathon Major" }
+      , { type: "Hilly_course", description: "317m elevation gain, 400m elevation loss" }
     ]
   },
 ];
