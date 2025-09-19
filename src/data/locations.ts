@@ -37,4 +37,9 @@ export const locations: Record<string, Location> = {
     coordinates: { lat: 34.6932379, lng: 135.1943764 },
     country: "Japan",
   },
+  tokyo: {
+    name: "Tokyo",
+    coordinates: { lat: 35.6768601, lng: 139.7638947 },
+    country: "Japan",
+  },
 };
