@@ -7,10 +7,7 @@ export const upcomingRaces: UpcomingRace[] = [
     name: "Kobe Marathon",
     date: createISODate("2025-11-16"),
     type: "full",
-    location: {
-      name: locations.kobe.name,
-      country: locations.kobe.country,
-    },
+    location: { name: locations.kobe.name, country: locations.kobe.country },
     notes: "Getting a taste of the running culture in Japan",
   },
 ];

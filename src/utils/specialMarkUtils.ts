@@ -50,9 +50,10 @@ function getDefaultDescription(type: SpecialMarkType): string {
  * @param specialMark - The special mark to convert.
  * @returns An object containing the icon (as a React component) and description.
  */
-export function convertSpecialMarkToIcon(
-  specialMark: SpecialMark
-): { icon: React.ElementType; description: string } {
+export function convertSpecialMarkToIcon(specialMark: SpecialMark): {
+  icon: React.ElementType;
+  description: string;
+} {
   const { type, description } = specialMark;
   return {
     icon: getIcon(type),

@@ -4,58 +4,37 @@ import { Location } from "../types/marathon";
 export const locations: Record<string, Location> = {
   singapore: {
     name: "Singapore",
-    coordinates: {
-      lat: 1.357107,
-      lng: 103.8194992,
-    },
+    coordinates: { lat: 1.357107, lng: 103.8194992 },
     country: "Singapore",
   },
   sydney: {
     name: "Sydney",
-    coordinates: {
-      lat: -33.8698439,
-      lng: 151.2082848,
-    },
+    coordinates: { lat: -33.8698439, lng: 151.2082848 },
     country: "Australia",
   },
   goldCoast: {
     name: "Gold Coast",
-    coordinates: {
-      lat: -28.0023731,
-      lng: 153.4145987,
-    },
+    coordinates: { lat: -28.0023731, lng: 153.4145987 },
     country: "Australia",
   },
   hongKong: {
     name: "Hong Kong",
-    coordinates: {
-      lat: 22.350627,
-      lng: 114.1849161,
-    },
+    coordinates: { lat: 22.350627, lng: 114.1849161 },
     country: "Hong Kong",
   },
   melbourne: {
     name: "Melbourne",
-    coordinates: {
-      lat: -37.8142454,
-      lng: 144.9631732,
-    },
+    coordinates: { lat: -37.8142454, lng: 144.9631732 },
     country: "Australia",
   },
   wuhan: {
     name: "Wuhan",
-    coordinates: {
-      lat: 30.5951051,
-      lng: 114.2999353,
-    },
+    coordinates: { lat: 30.5951051, lng: 114.2999353 },
     country: "China",
   },
   kobe: {
     name: "Kobe",
-    coordinates: {
-      lat: 34.6932379,
-      lng: 135.1943764,
-    },
+    coordinates: { lat: 34.6932379, lng: 135.1943764 },
     country: "Japan",
   },
 };

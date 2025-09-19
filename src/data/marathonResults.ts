@@ -20,9 +20,9 @@ export const marathonResults: MarathonResult[] = [
       condition: "Rainy",
     },
     specialMarks: [
-      { type: "First_time", description: "My first half marathon!" }
-      , { type: "PB" }
-    ]
+      { type: "First_time", description: "My first half marathon!" },
+      { type: "PB" },
+    ],
   },
   {
     name: "Gold Coast Marathon",
@@ -36,8 +36,12 @@ export const marathonResults: MarathonResult[] = [
     },
 
     specialMarks: [
-      { type: "PB", description: "New Personal Best! Thanks to the good weather and flat course." }
-    ]
+      {
+        type: "PB",
+        description:
+          "New Personal Best! Thanks to the good weather and flat course.",
+      },
+    ],
   },
   {
     name: "Melbourne Marathon",
@@ -49,7 +53,6 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 12,
       condition: "Cloudy",
     },
-
   },
   {
     name: "HK–Zhuhai–Macao Bridge Half Marathon",
@@ -61,7 +64,6 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 20,
       condition: "Sunny",
     },
-
   },
   {
     name: "Sydney Marathon",
@@ -75,10 +77,13 @@ export const marathonResults: MarathonResult[] = [
     },
 
     specialMarks: [
-      { type: "First_time", description: "My first full marathon!" }
-      , { type: "PB" }
-      , { type: "Hilly_course", description: "317m elevation gain, 400m elevation loss" }
-    ]
+      { type: "First_time", description: "My first full marathon!" },
+      { type: "PB" },
+      {
+        type: "Hilly_course",
+        description: "317m elevation gain, 400m elevation loss",
+      },
+    ],
   },
   {
     name: "Singapore Marathon",
@@ -92,8 +97,12 @@ export const marathonResults: MarathonResult[] = [
     },
 
     specialMarks: [
-      { type: "Injury", description: "Not fully recovered from the knee injury, and it got worse during the race" }
-    ]
+      {
+        type: "Injury",
+        description:
+          "Not fully recovered from the knee injury, and it got worse during the race",
+      },
+    ],
   },
   {
     name: "Wuhan Marathon",
@@ -107,8 +116,8 @@ export const marathonResults: MarathonResult[] = [
     },
 
     specialMarks: [
-      { type: "PB", description: "New Personal Best! Pushed really hard." }
-    ]
+      { type: "PB", description: "New Personal Best! Pushed really hard." },
+    ],
   },
   {
     name: "2XU Compression Run",
@@ -118,12 +127,10 @@ export const marathonResults: MarathonResult[] = [
     location: locations.singapore,
     weather: {
       feelsLike: 28,
-      condition: "Cloudy" // before sunrise
+      condition: "Cloudy", // before sunrise
     },
 
-    specialMarks: [
-      { type: "PB" }
-    ]
+    specialMarks: [{ type: "PB" }],
   },
   {
     name: "Gold Coast Marathon",
@@ -136,8 +143,8 @@ export const marathonResults: MarathonResult[] = [
       condition: "Cloudy",
     },
     specialMarks: [
-      { type: "PB", description: "New Personal Best! Sub 3:15 achieved." }
-    ]
+      { type: "PB", description: "New Personal Best! Sub 3:15 achieved." },
+    ],
   },
   {
     name: "Sydney Marathon",
@@ -150,8 +157,14 @@ export const marathonResults: MarathonResult[] = [
       condition: "Sunny",
     },
     specialMarks: [
-      { type: "World_major", description: "My first Abbott World Marathon Major" }
-      , { type: "Hilly_course", description: "317m elevation gain, 400m elevation loss" }
-    ]
+      {
+        type: "World_major",
+        description: "My first Abbott World Marathon Major",
+      },
+      {
+        type: "Hilly_course",
+        description: "317m elevation gain, 400m elevation loss",
+      },
+    ],
   },
 ];

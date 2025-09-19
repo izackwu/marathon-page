@@ -16,7 +16,7 @@ export type SpecialMarkType =
   | "PB"
   | "Hilly_course"
   | "Injury"
-  | "World_major"
+  | "World_major";
 
 export interface SpecialMark {
   type: SpecialMarkType;

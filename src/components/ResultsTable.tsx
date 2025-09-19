@@ -103,10 +103,11 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   <span
-                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${result.type === "full"
+                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      result.type === "full"
                         ? "bg-indigo-100 text-indigo-800"
                         : "bg-emerald-100 text-emerald-800"
-                      }`}
+                    }`}
                   >
                     {result.type === "full" ? "Marathon" : "Half Marathon"}
                   </span>
@@ -148,7 +149,8 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <div className="flex gap-2">
                     {result.specialMarks?.map((mark, index) => {
-                      const { icon: Icon, description } = convertSpecialMarkToIcon(mark);
+                      const { icon: Icon, description } =
+                        convertSpecialMarkToIcon(mark);
                       return (
                         <div
                           key={index}
