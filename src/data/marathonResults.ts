@@ -167,4 +167,16 @@ export const marathonResults: MarathonResult[] = [
       },
     ],
   },
+  {
+    name: "Kobe Marathon",
+    date: createISODate("2025-11-16"),
+    type: "full",
+    finishTime: createDuration("03:04:10"),
+    location: locations.kobe,
+    weather: {
+      feelsLike: 15,
+      condition: "Sunny",
+    },
+    specialMarks: [{ type: "PB" }],
+  },
 ];
