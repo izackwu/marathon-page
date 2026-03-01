@@ -179,4 +179,22 @@ export const marathonResults: MarathonResult[] = [
     },
     specialMarks: [{ type: "PB" }],
   },
+  {
+    name: "Tokyo Marathon",
+    date: createISODate("2026-03-01"),
+    type: "full",
+    finishTime: createDuration("03:00:05"),
+    location: locations.tokyo,
+    weather: {
+      feelsLike: 15,
+      condition: "Sunny",
+    },
+    specialMarks: [
+      { type: "World_major" },
+      {
+        type: "PB",
+        description: "Missed sub-3 by 5 seconds, but still a PB.",
+      },
+    ],
+  },
 ];
