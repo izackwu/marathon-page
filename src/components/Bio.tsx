@@ -12,7 +12,7 @@ function StravaIcon({ className }: { className?: string }) {
 export function Bio() {
   return (
     <div className="bg-white rounded-lg p-6 shadow-md mb-8">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
         <div className="flex items-center gap-3">
           <BookHeart className="w-8 h-8 text-indigo-600" />
           <h2 className="text-xl font-semibold text-gray-900">About Me</h2>

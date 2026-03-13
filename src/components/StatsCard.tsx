@@ -24,17 +24,21 @@ export function StatsCard({ stats }: StatsCardProps) {
               <Medal className="w-5 h-5" />
               <h3 className="font-medium">Best Times</h3>
             </div>
-            <p className="text-2xl font-bold text-gray-900 flex items-baseline gap-2">
-              <span>
-                {stats.bestFullTime ? formatDuration(stats.bestFullTime) : "-"}
-              </span>
-              <span className="text-sm text-gray-500">(full)</span>
+            <div className="text-2xl font-bold text-gray-900 flex flex-wrap items-baseline gap-x-2">
+              <div className="flex items-baseline gap-2">
+                <span>
+                  {stats.bestFullTime ? formatDuration(stats.bestFullTime) : "-"}
+                </span>
+                <span className="text-sm text-gray-500">(full)</span>
+              </div>
               <span className="text-gray-400">/</span>
-              <span>
-                {stats.bestHalfTime ? formatDuration(stats.bestHalfTime) : "-"}
-              </span>
-              <span className="text-sm text-gray-500">(half)</span>
-            </p>
+              <div className="flex items-baseline gap-2">
+                <span>
+                  {stats.bestHalfTime ? formatDuration(stats.bestHalfTime) : "-"}
+                </span>
+                <span className="text-sm text-gray-500">(half)</span>
+              </div>
+            </div>
           </div>
         </div>
 
