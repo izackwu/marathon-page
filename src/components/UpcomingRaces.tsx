@@ -19,10 +19,10 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
   });
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="md:bg-white md:rounded-lg md:shadow-md md:overflow-hidden">
       {/* Mobile View */}
-      <div className="md:hidden">
-        <div className="bg-gray-50 px-4 py-3 border-b border-gray-200 flex gap-4">
+      <div className="md:hidden space-y-4">
+        <div className="bg-white px-4 py-3 rounded-lg shadow-md flex gap-4">
           <span className="text-xs font-medium text-gray-500 uppercase tracking-wider self-center">
             Sort by:
           </span>
@@ -36,11 +36,11 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
             <ArrowUpDown className="w-4 h-4" />
           </button>
         </div>
-        <div className="divide-y divide-gray-200">
+        <div className="space-y-4">
           {sortedRaces.map((race) => (
             <div
               key={`${race.date}-${race.name}`}
-              className="p-4 hover:bg-gray-50 space-y-3"
+              className="bg-white rounded-lg shadow-md p-4 hover:bg-gray-50 space-y-3"
             >
               <div className="flex justify-between items-start">
                 <div>

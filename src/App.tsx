@@ -65,7 +65,7 @@ function App() {
               <h2 className="text-xl font-semibold text-gray-900 mb-4">
                 Upcoming Races ({upcomingRaces.length})
               </h2>
-              <div className="-mx-2 sm:mx-0">
+              <div>
                 <UpcomingRaces races={upcomingRaces} />
               </div>
             </div>
@@ -75,7 +75,7 @@ function App() {
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               Race History ({marathonResults.length})
             </h2>
-            <div className="-mx-2 sm:mx-0">
+            <div>
               <ResultsTable results={marathonResults} />
             </div>
           </div>
