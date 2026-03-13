@@ -62,7 +62,115 @@ export function ResultsTable({ results }: ResultsTableProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="overflow-x-auto">
+      {/* Mobile View */}
+      <div className="md:hidden">
+        <div className="bg-gray-50 px-4 py-3 border-b border-gray-200 flex gap-4">
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider self-center">
+            Sort by:
+          </span>
+          <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <SortButton field="date">Date</SortButton>
+          </div>
+          <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <SortButton field="pace">Pace</SortButton>
+          </div>
+        </div>
+        <div className="divide-y divide-gray-200">
+          {sortedResults.map((result) => (
+            <div
+              key={`${result.date}-${result.name}`}
+              className="p-4 hover:bg-gray-50 space-y-3"
+            >
+              <div className="flex justify-between items-start">
+                <div>
+                  <div className="text-xs text-gray-500">
+                    {formatDate(result.date)}
+                  </div>
+                  <h3 className="font-bold text-gray-900">{result.name}</h3>
+                </div>
+                <span
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                    result.type === "full"
+                      ? "bg-indigo-100 text-indigo-800"
+                      : "bg-emerald-100 text-emerald-800"
+                  }`}
+                >
+                  {result.type === "full" ? "Marathon" : "Half Marathon"}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                    Location
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {React.createElement(
+                      getCountryFlag(result.location.country),
+                      {
+                        className: "w-3 h-3",
+                      },
+                    )}
+                    <span>{result.location.name}</span>
+                  </div>
+                </div>
+                <div>
+                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                    Finish Time
+                  </div>
+                  <div className="font-semibold">
+                    {formatDuration(result.finishTime)}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                    Avg Pace
+                  </div>
+                  <div>{calculatePace(result.finishTime, result.type)}/km</div>
+                </div>
+                <div>
+                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                    Weather
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {React.createElement(
+                      getWeatherIcon(result.weather.condition),
+                      {
+                        className: "w-3 h-3 text-gray-400",
+                      },
+                    )}
+                    <span className="truncate">
+                      {result.weather.condition} ({result.weather.feelsLike}°C)
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {result.specialMarks && result.specialMarks.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
+                  {result.specialMarks.map((mark, index) => {
+                    const { icon: Icon, description } =
+                      convertSpecialMarkToIcon(mark);
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded"
+                        title={description}
+                      >
+                        <Icon className="w-3.5 h-3.5" />
+                        <span>{description}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
