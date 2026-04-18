@@ -42,6 +42,11 @@ export function createISODate(dateString: string): ISODateString {
   return dateString as ISODateString;
 }
 
+export function durationToSeconds(duration: DurationString): number {
+  const [hours, minutes, seconds] = duration.split(":").map(Number);
+  return hours * 3600 + minutes * 60 + seconds;
+}
+
 export function createDuration(duration: string): DurationString {
   try {
     parse(duration, "HH:mm:ss", new Date());

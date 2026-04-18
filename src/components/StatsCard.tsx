@@ -31,13 +31,15 @@ export function StatsCard({ stats }: StatsCardProps) {
                 </span>
                 <span className="text-sm text-gray-500">(full)</span>
               </div>
-              <span className="text-gray-400">/</span>
-              <div className="flex items-baseline gap-2">
-                <span>
-                  {stats.bestHalfTime ? formatDuration(stats.bestHalfTime) : "-"}
-                </span>
-                <span className="text-sm text-gray-500">(half)</span>
-              </div>
+              {stats.bestHalfTime && (
+                <>
+                  <span className="text-gray-400">/</span>
+                  <div className="flex items-baseline gap-2">
+                    <span>{formatDuration(stats.bestHalfTime)}</span>
+                    <span className="text-sm text-gray-500">(half)</span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -7,7 +7,8 @@ import { marathonResults } from "./data/marathonResults";
 import { upcomingRaces } from "./data/upcomingRaces";
 import { bioContent } from "./data/bioContent";
 import { UpcomingRaces } from "./components/UpcomingRaces";
-import { MarathonStats } from "./types/marathon";
+import { MarathonStats, DurationString } from "./types/marathon";
+import { durationToSeconds } from "./utils/dateUtils";
 import { Footer } from "./components/Footer";
 
 function calculateStats(results: typeof marathonResults): MarathonStats {
@@ -20,22 +21,32 @@ function calculateStats(results: typeof marathonResults): MarathonStats {
 
   const nextRace = upcomingRaces.length > 0 ? upcomingRaces[0].date : undefined;
 
+  const bestHalfTime: DurationString | undefined =
+    halfMarathons.length > 0
+      ? halfMarathons.reduce(
+          (best, curr) => (curr.finishTime < best ? curr.finishTime : best),
+          halfMarathons[0].finishTime,
+        )
+      : undefined;
+
+  const bestFullTime: DurationString | undefined =
+    fullMarathons.length > 0
+      ? fullMarathons.reduce(
+          (best, curr) => (curr.finishTime < best ? curr.finishTime : best),
+          fullMarathons[0].finishTime,
+        )
+      : undefined;
+
+  // Hide half marathon best if it's stale (slower than half of full marathon best)
+  const isHalfTimeStale =
+    bestHalfTime &&
+    bestFullTime &&
+    durationToSeconds(bestHalfTime) > durationToSeconds(bestFullTime) / 2;
+
   return {
     totalRaces: results.length,
-    bestHalfTime:
-      halfMarathons.length > 0
-        ? halfMarathons.reduce(
-            (best, curr) => (curr.finishTime < best ? curr.finishTime : best),
-            halfMarathons[0].finishTime,
-          )
-        : undefined,
-    bestFullTime:
-      fullMarathons.length > 0
-        ? fullMarathons.reduce(
-            (best, curr) => (curr.finishTime < best ? curr.finishTime : best),
-            fullMarathons[0].finishTime,
-          )
-        : undefined,
+    bestHalfTime: isHalfTimeStale ? undefined : bestHalfTime,
+    bestFullTime,
     firstRaceDate: sortedResults[0].date,
     lastRaceDate: sortedResults[sortedResults.length - 1].date,
     uniqueCountries: new Set(results.map((r) => r.location.country)).size,
