@@ -12,8 +12,8 @@ export function StatsCard({ stats }: StatsCardProps) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-card rounded-lg p-6 border border-border">
           <div className="flex items-center gap-2 text-accent mb-2">
-            <Trophy className="w-5 h-5" />
-            <h3 className="font-medium">Total Races</h3>
+            <Trophy className="w-4 h-4" />
+            <h3 className="text-[10px] uppercase tracking-[0.12em]">Total Races</h3>
           </div>
           <p className="text-[26px] font-medium text-heading tracking-tight">{stats.totalRaces}</p>
         </div>
@@ -21,22 +21,24 @@ export function StatsCard({ stats }: StatsCardProps) {
         <div className="bg-card rounded-lg p-6 border border-border space-y-4">
           <div>
             <div className="flex items-center gap-2 text-accent mb-2">
-              <Medal className="w-5 h-5" />
-              <h3 className="font-medium">Best Times</h3>
+              <Medal className="w-4 h-4" />
+              <h3 className="text-[10px] uppercase tracking-[0.12em]">Best Times</h3>
             </div>
-            <div className="text-[26px] font-medium text-heading tracking-tight tabular-nums flex flex-wrap items-baseline gap-x-2">
-              <div className="flex items-baseline gap-2">
-                <span>
+            <div className="flex items-baseline gap-3 mt-1">
+              <div>
+                <div className="text-[22px] font-medium text-accent tracking-tight tabular-nums">
                   {stats.bestFullTime ? formatDuration(stats.bestFullTime) : "-"}
-                </span>
-                <span className="text-sm text-muted">(full)</span>
+                </div>
+                <div className="text-[10px] text-muted mt-1 uppercase tracking-[0.08em]">Full</div>
               </div>
               {stats.bestHalfTime && (
                 <>
-                  <span className="text-muted">/</span>
-                  <div className="flex items-baseline gap-2">
-                    <span>{formatDuration(stats.bestHalfTime)}</span>
-                    <span className="text-sm text-muted">(half)</span>
+                  <div className="w-px h-7 bg-border flex-shrink-0" />
+                  <div>
+                    <div className="text-[22px] font-medium text-accent tracking-tight tabular-nums">
+                      {formatDuration(stats.bestHalfTime)}
+                    </div>
+                    <div className="text-[10px] text-muted mt-1 uppercase tracking-[0.08em]">Half</div>
                   </div>
                 </>
               )}
@@ -46,8 +48,8 @@ export function StatsCard({ stats }: StatsCardProps) {
 
         <div className="bg-card rounded-lg p-6 border border-border">
           <div className="flex items-center gap-2 text-accent mb-2">
-            <Globe2 className="w-5 h-5" />
-            <h3 className="font-medium">Countries</h3>
+            <Globe2 className="w-4 h-4" />
+            <h3 className="text-[10px] uppercase tracking-[0.12em]">Countries</h3>
           </div>
           <p className="text-[26px] font-medium text-heading tracking-tight">
             {stats.uniqueCountries}
@@ -58,8 +60,8 @@ export function StatsCard({ stats }: StatsCardProps) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-card rounded-lg p-6 border border-border">
           <div className="flex items-center gap-2 text-muted mb-2">
-            <Calendar className="w-5 h-5" />
-            <h3 className="font-medium text-muted">First Race</h3>
+            <Calendar className="w-4 h-4" />
+            <h3 className="text-[10px] uppercase tracking-[0.12em]">First Race</h3>
           </div>
           <p className="text-[26px] font-medium text-heading tracking-tight">
             {formatTimeAgo(stats.firstRaceDate)}
@@ -68,8 +70,8 @@ export function StatsCard({ stats }: StatsCardProps) {
 
         <div className="bg-card rounded-lg p-6 border border-border">
           <div className="flex items-center gap-2 text-muted mb-2">
-            <Clock className="w-5 h-5" />
-            <h3 className="font-medium text-muted">Last Race</h3>
+            <Clock className="w-4 h-4" />
+            <h3 className="text-[10px] uppercase tracking-[0.12em]">Last Race</h3>
           </div>
           <p className="text-[26px] font-medium text-heading tracking-tight">
             {formatTimeAgo(stats.lastRaceDate)}
@@ -78,8 +80,8 @@ export function StatsCard({ stats }: StatsCardProps) {
 
         <div className="bg-card rounded-lg p-6 border border-border">
           <div className="flex items-center gap-2 text-muted mb-2">
-            <Timer className="w-5 h-5" />
-            <h3 className="font-medium text-muted">Next Race</h3>
+            <Timer className="w-4 h-4" />
+            <h3 className="text-[10px] uppercase tracking-[0.12em]">Next Race</h3>
           </div>
           <p className="text-[26px] font-medium text-heading tracking-tight">
             {stats.nextRaceDate
