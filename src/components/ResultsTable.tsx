@@ -61,10 +61,10 @@ export function ResultsTable({ results }: ResultsTableProps) {
   );
 
   return (
-    <div className="md:bg-white md:rounded-lg md:shadow-md md:overflow-hidden">
+    <div className="md:bg-card md:rounded-lg md:border md:border-border md:overflow-hidden">
       {/* Mobile View */}
       <div className="md:hidden space-y-4">
-        <div className="bg-white px-4 py-3 rounded-lg shadow-md flex gap-4">
+        <div className="bg-card px-4 py-3 rounded-lg border border-border flex gap-4">
           <span className="text-xs font-medium text-gray-500 uppercase tracking-wider self-center">
             Sort by:
           </span>
@@ -79,7 +79,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
           {sortedResults.map((result) => (
             <div
               key={`${result.date}-${result.name}`}
-              className="bg-white rounded-lg shadow-md p-4 hover:bg-gray-50 space-y-3"
+              className="bg-card rounded-lg border border-border p-4 hover:bg-gray-50 space-y-3"
             >
               <div className="flex justify-between items-start">
                 <div>
@@ -91,8 +91,8 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 <span
                   className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                     result.type === "full"
-                      ? "bg-indigo-100 text-indigo-800"
-                      : "bg-emerald-100 text-emerald-800"
+                      ? "bg-accent-badge-bg text-accent-badge"
+                      : "bg-[#F2F1EF] text-muted"
                   }`}
                 >
                   {result.type === "full" ? "Marathon" : "Half Marathon"}
@@ -171,8 +171,8 @@ export function ResultsTable({ results }: ResultsTableProps) {
 
       {/* Desktop View */}
       <div className="hidden md:block overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+        <table className="min-w-full divide-y divide-border">
+          <thead className="bg-card">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 <SortButton field="date">DATE</SortButton>
@@ -200,11 +200,11 @@ export function ResultsTable({ results }: ResultsTableProps) {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y divide-border">
             {sortedResults.map((result) => (
               <tr
                 key={`${result.date}-${result.name}`}
-                className="hover:bg-gray-50"
+                className="hover:bg-bg"
               >
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {formatDate(result.date)}
@@ -213,8 +213,8 @@ export function ResultsTable({ results }: ResultsTableProps) {
                   <span
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       result.type === "full"
-                        ? "bg-indigo-100 text-indigo-800"
-                        : "bg-emerald-100 text-emerald-800"
+                        ? "bg-accent-badge-bg text-accent-badge"
+                        : "bg-[#F2F1EF] text-muted"
                     }`}
                   >
                     {result.type === "full" ? "Marathon" : "Half Marathon"}

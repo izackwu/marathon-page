@@ -9,9 +9,9 @@ import { getCountryFlag } from "../utils/countryUtils";
 
 const markerSvg = `
 <svg width="30" height="49" viewBox="0 0 30 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M15 0C6.71573 0 0 6.71573 0 15C0 26.25 15 49 15 49C15 49 30 26.25 30 15C30 6.71573 23.2843 0 15 0Z" fill="rgb(99, 102, 241)"/>
+  <path d="M15 0C6.71573 0 0 6.71573 0 15C0 26.25 15 49 15 49C15 49 30 26.25 30 15C30 6.71573 23.2843 0 15 0Z" fill="rgb(27, 107, 69)"/>
   <circle cx="15" cy="15" r="10" fill="white"/>
-  <text x="15" y="19" font-family="Arial" font-size="11" fill="rgb(99, 102, 241)" font-weight="bold" text-anchor="middle">%count%</text>
+  <text x="15" y="19" font-family="Arial" font-size="11" fill="rgb(27, 107, 69)" font-weight="bold" text-anchor="middle">%count%</text>
 </svg>
 `;
 
@@ -74,7 +74,7 @@ export function MapView({ results }: MapViewProps) {
                       },
                     )}
                     <div>
-                      <h3 className="font-semibold text-indigo-600">
+                      <h3 className="font-semibold text-accent">
                         {races[0].location.name}, {races[0].location.country}
                       </h3>
                     </div>
@@ -90,8 +90,8 @@ export function MapView({ results }: MapViewProps) {
                           <span
                             className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ${
                               race.type === "full"
-                                ? "bg-indigo-100 text-indigo-800"
-                                : "bg-emerald-100 text-emerald-800"
+                                ? "bg-accent-badge-bg text-accent-badge"
+                                : "bg-[#F2F1EF] text-muted"
                             }`}
                           >
                             {race.type === "full" ? "M" : "HM"}
