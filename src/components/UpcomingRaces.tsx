@@ -52,8 +52,8 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                 <span
                   className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                     race.type === "full"
-                      ? "bg-indigo-100 text-indigo-800"
-                      : "bg-emerald-100 text-emerald-800"
+                      ? "bg-emerald-100 text-emerald-800"
+                      : "bg-gray-100 text-gray-600"
                   }`}
                 >
                   {race.type === "full" ? "Marathon" : "Half Marathon"}
@@ -134,8 +134,8 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                   <span
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       race.type === "full"
-                        ? "bg-indigo-100 text-indigo-800"
-                        : "bg-emerald-100 text-emerald-800"
+                        ? "bg-emerald-100 text-emerald-800"
+                        : "bg-gray-100 text-gray-600"
                     }`}
                   >
                     {race.type === "full" ? "Marathon" : "Half Marathon"}

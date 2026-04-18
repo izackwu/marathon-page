@@ -11,7 +11,7 @@ export function StatsCard({ stats }: StatsCardProps) {
     <div className="grid gap-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-lg p-6 shadow-md">
-          <div className="flex items-center gap-2 text-indigo-600 mb-2">
+          <div className="flex items-center gap-2 text-emerald-600 mb-2">
             <Trophy className="w-5 h-5" />
             <h3 className="font-medium">Total Races</h3>
           </div>
@@ -20,7 +20,7 @@ export function StatsCard({ stats }: StatsCardProps) {
 
         <div className="bg-white rounded-lg p-6 shadow-md space-y-4">
           <div>
-            <div className="flex items-center gap-2 text-amber-500 mb-2">
+            <div className="flex items-center gap-2 text-emerald-600 mb-2">
               <Medal className="w-5 h-5" />
               <h3 className="font-medium">Best Times</h3>
             </div>
