@@ -58,7 +58,7 @@ function App() {
   const stats = calculateStats(marathonResults);
 
   return (
-    <div className="min-h-screen bg-bg">
+    <div className="min-h-screen bg-page">
       <div className="max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 py-8">
         <h1 className="text-[32px] font-serif font-normal text-heading tracking-[-0.01em]">
           {bioContent.title}
@@ -67,7 +67,7 @@ function App() {
           {bioContent.socialLinks.map((link, index) => (
             <React.Fragment key={link.platform}>
               {index > 0 && (
-                <span className="text-border text-xs">·</span>
+                <span className="text-line text-xs">·</span>
               )}
               <a
                 href={link.url}

@@ -74,7 +74,7 @@ export function MapView({ results }: MapViewProps) {
                       },
                     )}
                     <div>
-                      <h3 className="font-semibold text-accent">
+                      <h3 className="font-semibold text-primary">
                         {races[0].location.name}, {races[0].location.country}
                       </h3>
                     </div>
@@ -90,7 +90,7 @@ export function MapView({ results }: MapViewProps) {
                           <span
                             className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ${
                               race.type === "full"
-                                ? "bg-accent-badge-bg text-accent-badge"
+                                ? "bg-primary-badge-bg text-primary-badge"
                                 : "bg-[#F2F1EF] text-muted"
                             }`}
                           >

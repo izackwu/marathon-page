@@ -61,10 +61,10 @@ export function ResultsTable({ results }: ResultsTableProps) {
   );
 
   return (
-    <div className="md:bg-card md:rounded-lg md:border md:border-border md:overflow-hidden">
+    <div className="md:bg-card md:rounded-lg md:border-[0.5px] md:border-line md:overflow-hidden">
       {/* Mobile View */}
       <div className="md:hidden space-y-4">
-        <div className="bg-card px-4 py-3 rounded-lg border border-border flex gap-4">
+        <div className="bg-card px-4 py-3 rounded-lg border-[0.5px] border-line flex gap-4">
           <span className="text-xs font-medium text-gray-500 uppercase tracking-wider self-center">
             Sort by:
           </span>
@@ -79,7 +79,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
           {sortedResults.map((result) => (
             <div
               key={`${result.date}-${result.name}`}
-              className="bg-card rounded-lg border border-border p-4 hover:bg-gray-50 space-y-3"
+              className="bg-card rounded-lg border-[0.5px] border-line p-4 hover:bg-gray-50 space-y-3"
             >
               <div className="flex justify-between items-start">
                 <div>
@@ -91,7 +91,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 <span
                   className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                     result.type === "full"
-                      ? "bg-accent-badge-bg text-accent-badge"
+                      ? "bg-primary-badge-bg text-primary-badge"
                       : "bg-[#F2F1EF] text-muted"
                   }`}
                 >
@@ -171,7 +171,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
 
       {/* Desktop View */}
       <div className="hidden md:block overflow-x-auto">
-        <table className="min-w-full divide-y divide-border">
+        <table className="min-w-full divide-y divide-y-[0.5px] divide-[#EDEAE5]">
           <thead className="bg-card">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -200,11 +200,11 @@ export function ResultsTable({ results }: ResultsTableProps) {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-border">
+          <tbody className="bg-white divide-y divide-y-[0.5px] divide-[#EDEAE5]">
             {sortedResults.map((result) => (
               <tr
                 key={`${result.date}-${result.name}`}
-                className="hover:bg-bg"
+                className="hover:bg-page"
               >
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {formatDate(result.date)}
@@ -213,7 +213,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                   <span
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       result.type === "full"
-                        ? "bg-accent-badge-bg text-accent-badge"
+                        ? "bg-primary-badge-bg text-primary-badge"
                         : "bg-[#F2F1EF] text-muted"
                     }`}
                   >
