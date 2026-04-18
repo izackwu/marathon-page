@@ -91,8 +91,8 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 <span
                   className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                     result.type === "full"
-                      ? "bg-emerald-100 text-emerald-800"
-                      : "bg-gray-100 text-gray-600"
+                      ? "bg-indigo-100 text-indigo-800"
+                      : "bg-emerald-100 text-emerald-800"
                   }`}
                 >
                   {result.type === "full" ? "Marathon" : "Half Marathon"}
@@ -213,8 +213,8 @@ export function ResultsTable({ results }: ResultsTableProps) {
                   <span
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       result.type === "full"
-                        ? "bg-emerald-100 text-emerald-800"
-                        : "bg-gray-100 text-gray-600"
+                        ? "bg-indigo-100 text-indigo-800"
+                        : "bg-emerald-100 text-emerald-800"
                     }`}
                   >
                     {result.type === "full" ? "Marathon" : "Half Marathon"}
