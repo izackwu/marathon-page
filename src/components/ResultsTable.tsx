@@ -53,7 +53,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
   }) => (
     <button
       onClick={() => handleSort(field)}
-      className="flex items-center gap-1 hover:text-gray-700"
+      className="flex items-center gap-1 hover:text-heading"
     >
       {children}
       <ArrowUpDown className="w-4 h-4" />
@@ -61,38 +61,38 @@ export function ResultsTable({ results }: ResultsTableProps) {
   );
 
   return (
-    <div className="md:bg-white md:rounded-lg md:shadow-md md:overflow-hidden">
+    <div className="md:bg-card md:rounded-lg md:border-[0.5px] md:border-line md:overflow-hidden">
       {/* Mobile View */}
-      <div className="md:hidden space-y-4">
-        <div className="bg-white px-4 py-3 rounded-lg shadow-md flex gap-4">
-          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider self-center">
+      <div className="md:hidden space-y-3">
+        <div className="bg-card px-4 py-3 rounded-lg border-[0.5px] border-line flex gap-4">
+          <span className="text-label font-medium text-muted uppercase self-center">
             Sort by:
           </span>
-          <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <div className="text-label font-medium text-muted uppercase">
             <SortButton field="date">Date</SortButton>
           </div>
-          <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <div className="text-label font-medium text-muted uppercase">
             <SortButton field="pace">Pace</SortButton>
           </div>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {sortedResults.map((result) => (
             <div
               key={`${result.date}-${result.name}`}
-              className="bg-white rounded-lg shadow-md p-4 hover:bg-gray-50 space-y-3"
+              className="bg-card rounded-lg border-[0.5px] border-line p-4 hover:bg-page space-y-3"
             >
               <div className="flex justify-between items-start">
                 <div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted">
                     {formatDate(result.date)}
                   </div>
-                  <h3 className="font-bold text-gray-900">{result.name}</h3>
+                  <h3 className="font-medium text-heading">{result.name}</h3>
                 </div>
                 <span
                   className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                     result.type === "full"
-                      ? "bg-indigo-100 text-indigo-800"
-                      : "bg-emerald-100 text-emerald-800"
+                      ? "bg-primary-badge-bg text-primary-badge"
+                      : "bg-[#F2F1EF] text-muted"
                   }`}
                 >
                   {result.type === "full" ? "Marathon" : "Half Marathon"}
@@ -101,7 +101,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
 
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                  <div className="text-muted uppercase text-label">
                     Location
                   </div>
                   <div className="flex items-center gap-1">
@@ -115,7 +115,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                   </div>
                 </div>
                 <div>
-                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                  <div className="text-muted uppercase text-label">
                     Finish Time
                   </div>
                   <div className="font-semibold">
@@ -123,20 +123,20 @@ export function ResultsTable({ results }: ResultsTableProps) {
                   </div>
                 </div>
                 <div>
-                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                  <div className="text-muted uppercase text-label">
                     Avg Pace
                   </div>
                   <div>{calculatePace(result.finishTime, result.type)}/km</div>
                 </div>
                 <div>
-                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                  <div className="text-muted uppercase text-label">
                     Weather
                   </div>
                   <div className="flex items-center gap-1">
                     {React.createElement(
                       getWeatherIcon(result.weather.condition),
                       {
-                        className: "w-3 h-3 text-gray-400",
+                        className: "w-3 h-3 text-muted",
                       },
                     )}
                     <span className="truncate">
@@ -147,14 +147,14 @@ export function ResultsTable({ results }: ResultsTableProps) {
               </div>
 
               {result.specialMarks && result.specialMarks.length > 0 && (
-                <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-line">
                   {result.specialMarks.map((mark, index) => {
                     const { icon: Icon, description } =
                       convertSpecialMarkToIcon(mark);
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded"
+                        className="flex items-center gap-1 text-xs text-muted bg-page px-2 py-1 rounded"
                         title={description}
                       >
                         <Icon className="w-3.5 h-3.5" />
@@ -171,59 +171,59 @@ export function ResultsTable({ results }: ResultsTableProps) {
 
       {/* Desktop View */}
       <div className="hidden md:block overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+        <table className="min-w-full divide-y divide-y-[0.5px] divide-[#EDEAE5]">
+          <thead className="bg-card">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 <SortButton field="date">DATE</SortButton>
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 Type
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 Name
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 Location
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 FINISH TIME
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 <SortButton field="pace">AVG PACE</SortButton>
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 Weather
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 {/* Column for special marks, but there's no need to give it a name */}
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-card divide-y divide-y-[0.5px] divide-[#EDEAE5]">
             {sortedResults.map((result) => (
               <tr
                 key={`${result.date}-${result.name}`}
-                className="hover:bg-gray-50"
+                className="hover:bg-page"
               >
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   {formatDate(result.date)}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   <span
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       result.type === "full"
-                        ? "bg-indigo-100 text-indigo-800"
-                        : "bg-emerald-100 text-emerald-800"
+                        ? "bg-primary-badge-bg text-primary-badge"
+                        : "bg-[#F2F1EF] text-muted"
                     }`}
                   >
                     {result.type === "full" ? "Marathon" : "Half Marathon"}
                   </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   {result.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   <div className="flex items-center gap-2">
                     {React.createElement(
                       getCountryFlag(result.location.country),
@@ -234,27 +234,27 @@ export function ResultsTable({ results }: ResultsTableProps) {
                     <span>{result.location.name}</span>
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   {formatDuration(result.finishTime)}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   {calculatePace(result.finishTime, result.type)}/km
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   <div className="flex items-center gap-2">
                     {React.createElement(
                       getWeatherIcon(result.weather.condition),
                       {
-                        className: "w-4 h-4 text-gray-400",
+                        className: "w-4 h-4 text-muted",
                       },
                     )}
                     <span>{result.weather.condition}</span>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-muted">
                       (feels like {result.weather.feelsLike}°C)
                     </span>
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-muted">
                   <div className="flex gap-2">
                     {result.specialMarks?.map((mark, index) => {
                       const { icon: Icon, description } =
@@ -265,7 +265,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                           className="flex items-center gap-1"
                           title={description}
                         >
-                          <Icon className="w-4 h-4 text-gray-500" />
+                          <Icon className="w-4 h-4 text-muted" />
                           <span className="sr-only">{description}</span>
                         </div>
                       );
