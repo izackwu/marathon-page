@@ -9,7 +9,7 @@ import { UpcomingRaces } from "./components/UpcomingRaces";
 import { MarathonStats, DurationString } from "./types/marathon";
 import { durationToSeconds } from "./utils/dateUtils";
 import { Footer } from "./components/Footer";
-import { Rss } from "lucide-react";
+import { NotebookPen } from "lucide-react";
 
 function calculateStats(results: typeof marathonResults): MarathonStats {
   const sortedResults = [...results].sort(
@@ -60,10 +60,10 @@ function App() {
   return (
     <div className="min-h-screen bg-page">
       <div className="max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 py-8">
-        <h1 className="text-[32px] font-serif font-normal text-heading tracking-[-0.01em]">
+        <h1 className="text-title font-serif font-normal text-heading mb-2.5">
           {bioContent.title}
         </h1>
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center gap-4 mb-6">
           {bioContent.socialLinks.map((link, index) => (
             <React.Fragment key={link.platform}>
               {index > 0 && (
@@ -80,7 +80,7 @@ function App() {
                     <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7.008 13.828h4.172" />
                   </svg>
                 ) : (
-                  <Rss className="w-3 h-3" />
+                  <NotebookPen className="w-3 h-3" />
                 )}
                 <span>{link.label}</span>
               </a>
@@ -88,7 +88,7 @@ function App() {
           ))}
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-4">
 
           <StatsCard stats={stats} />
 

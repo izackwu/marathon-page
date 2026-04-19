@@ -84,7 +84,7 @@ export function MapView({ results }: MapViewProps) {
                       key={`${race.date}-${race.name}`}
                       className="border-t pt-2 first:border-t-0 first:pt-0"
                     >
-                      <div className="text-gray-600">
+                      <div className="text-body">
                         <div className="flex items-center gap-2">
                           <span>{race.name}</span>
                           <span

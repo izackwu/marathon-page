@@ -14,6 +14,12 @@ export default {
         body: "#555550",
         heading: "#1A1A17",
       },
+      fontSize: {
+        label: ["10px", { letterSpacing: "0.12em", lineHeight: "1.4" }],
+        cell: ["13px", { lineHeight: "1.5" }],
+        stat: ["28px", { letterSpacing: "-0.01em", lineHeight: "1.2" }],
+        title: ["32px", { letterSpacing: "-0.01em", lineHeight: "1.2" }],
+      },
       fontFamily: {
         serif: ["'Playfair Display'", "Georgia", "serif"],
       },

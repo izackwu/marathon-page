@@ -23,14 +23,14 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
       {/* Mobile View */}
       <div className="md:hidden space-y-4">
         <div className="bg-card px-4 py-3 rounded-lg border-[0.5px] border-line flex gap-4">
-          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider self-center">
+          <span className="text-label font-normal text-muted uppercase self-center">
             Sort by:
           </span>
           <button
             onClick={() =>
               setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"))
             }
-            className="flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700"
+            className="flex items-center gap-1 text-label font-normal text-muted uppercase hover:text-heading"
           >
             Date
             <ArrowUpDown className="w-4 h-4" />
@@ -40,14 +40,14 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
           {sortedRaces.map((race) => (
             <div
               key={`${race.date}-${race.name}`}
-              className="bg-card rounded-lg border-[0.5px] border-line p-4 hover:bg-gray-50 space-y-3"
+              className="bg-card rounded-lg border-[0.5px] border-line p-4 hover:bg-page space-y-3"
             >
               <div className="flex justify-between items-start">
                 <div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted">
                     {formatDate(race.date)}
                   </div>
-                  <h3 className="font-bold text-gray-900">{race.name}</h3>
+                  <h3 className="font-medium text-heading">{race.name}</h3>
                 </div>
                 <span
                   className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
@@ -62,7 +62,7 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
 
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                  <div className="text-muted uppercase text-label">
                     Location
                   </div>
                   <div className="flex items-center gap-1">
@@ -76,10 +76,10 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                   </div>
                 </div>
                 <div>
-                  <div className="text-gray-500 uppercase text-[10px] font-bold">
+                  <div className="text-muted uppercase text-label">
                     Notes
                   </div>
-                  <div className="text-gray-600 truncate">
+                  <div className="text-body truncate">
                     {race.notes || "-"}
                   </div>
                 </div>
@@ -94,29 +94,29 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
         <table className="min-w-full divide-y divide-y-[0.5px] divide-[#EDEAE5]">
           <thead className="bg-card">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 <button
                   onClick={() =>
                     setSortDirection((prev) =>
                       prev === "asc" ? "desc" : "asc",
                     )
                   }
-                  className="flex items-center gap-1 hover:text-gray-700"
+                  className="flex items-center gap-1 hover:text-heading"
                 >
                   DATE
                   <ArrowUpDown className="w-4 h-4" />
                 </button>
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 Type
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 Name
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 Location
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 Notes
               </th>
             </tr>
@@ -127,10 +127,10 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                 key={`${race.date}-${race.name}`}
                 className="hover:bg-page"
               >
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   {formatDate(race.date)}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   <span
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       race.type === "full"
@@ -141,10 +141,10 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                     {race.type === "full" ? "Marathon" : "Half Marathon"}
                   </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   {race.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-heading">
                   <div className="flex items-center gap-2">
                     {React.createElement(
                       getCountryFlag(race.location.country),
@@ -155,7 +155,7 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                     <span>{race.location.name}</span>
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-cell text-muted">
                   {race.notes || "-"}
                 </td>
               </tr>

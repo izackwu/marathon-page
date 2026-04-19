@@ -8,23 +8,23 @@ interface StatsCardProps {
 
 export function StatsCard({ stats }: StatsCardProps) {
   return (
-    <div className="grid gap-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <div className="bg-card rounded-lg p-6 border-[0.5px] border-line">
           <div className="flex items-center gap-2 text-primary mb-2">
             <Trophy className="w-4 h-4" />
-            <h3 className="text-[10px] uppercase tracking-[0.12em]">Total Races</h3>
+            <h3 className="text-label uppercase">Total Races</h3>
           </div>
-          <p className="text-[28px] font-medium text-heading tracking-tight">{stats.totalRaces}</p>
+          <p className="text-stat font-medium text-heading tracking-tight">{stats.totalRaces}</p>
         </div>
 
         <div className="bg-card rounded-lg p-6 border-[0.5px] border-line space-y-4">
           <div>
             <div className="flex items-center gap-2 text-primary mb-2">
               <Medal className="w-4 h-4" />
-              <h3 className="text-[10px] uppercase tracking-[0.12em]">Best Times</h3>
+              <h3 className="text-label uppercase">Best Times</h3>
             </div>
-            <div className="text-[28px] font-medium text-heading tracking-tight tabular-nums flex flex-wrap items-baseline gap-x-2">
+            <div className="text-stat font-medium text-heading tracking-tight tabular-nums flex flex-wrap items-baseline gap-x-2">
               <div className="flex items-baseline gap-2">
                 <span>
                   {stats.bestFullTime ? formatDuration(stats.bestFullTime) : "-"}
@@ -47,19 +47,19 @@ export function StatsCard({ stats }: StatsCardProps) {
         <div className="bg-card rounded-lg p-6 border-[0.5px] border-line">
           <div className="flex items-center gap-2 text-primary mb-2">
             <Globe2 className="w-4 h-4" />
-            <h3 className="text-[10px] uppercase tracking-[0.12em]">Countries</h3>
+            <h3 className="text-label uppercase">Countries</h3>
           </div>
-          <p className="text-[28px] font-medium text-heading tracking-tight">
+          <p className="text-stat font-medium text-heading tracking-tight">
             {stats.uniqueCountries}
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <div className="bg-card rounded-lg p-6 border-[0.5px] border-line">
           <div className="flex items-center gap-2 text-muted mb-2">
             <Calendar className="w-4 h-4" />
-            <h3 className="text-[10px] uppercase tracking-[0.12em]">First Race</h3>
+            <h3 className="text-label uppercase">First Race</h3>
           </div>
           <p className="text-lg font-medium text-heading">
             {formatTimeAgo(stats.firstRaceDate)}
@@ -69,7 +69,7 @@ export function StatsCard({ stats }: StatsCardProps) {
         <div className="bg-card rounded-lg p-6 border-[0.5px] border-line">
           <div className="flex items-center gap-2 text-muted mb-2">
             <Clock className="w-4 h-4" />
-            <h3 className="text-[10px] uppercase tracking-[0.12em]">Last Race</h3>
+            <h3 className="text-label uppercase">Last Race</h3>
           </div>
           <p className="text-lg font-medium text-heading">
             {formatTimeAgo(stats.lastRaceDate)}
@@ -79,7 +79,7 @@ export function StatsCard({ stats }: StatsCardProps) {
         <div className="bg-card rounded-lg p-6 border-[0.5px] border-line">
           <div className="flex items-center gap-2 text-muted mb-2">
             <Timer className="w-4 h-4" />
-            <h3 className="text-[10px] uppercase tracking-[0.12em]">Next Race</h3>
+            <h3 className="text-label uppercase">Next Race</h3>
           </div>
           <p className="text-lg font-medium text-heading">
             {stats.nextRaceDate
