@@ -81,15 +81,15 @@ export function ResultsTable({ results }: ResultsTableProps) {
               key={`${result.date}-${result.name}`}
               className="bg-card rounded-lg border-[0.5px] border-line p-4 hover:bg-page space-y-3"
             >
-              <div className="flex justify-between items-start">
-                <div>
+              <div className="flex justify-between items-start gap-2">
+                <div className="min-w-0">
                   <div className="text-xs text-muted">
                     {formatDate(result.date)}
                   </div>
                   <h3 className="font-medium text-heading">{result.name}</h3>
                 </div>
                 <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium whitespace-nowrap shrink-0 ${
                     result.type === "full"
                       ? "bg-primary-badge-bg text-primary-badge"
                       : "bg-[#F2F1EF] text-muted"
@@ -130,7 +130,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 </div>
                 <div>
                   <div className="text-muted uppercase text-label">
-                    Weather
+                    Weather (feels like)
                   </div>
                   <div className="flex items-center gap-1">
                     {React.createElement(
@@ -193,7 +193,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                 <SortButton field="pace">AVG PACE</SortButton>
               </th>
               <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
-                Weather
+                Weather (feels like)
               </th>
               <th className="px-6 py-3 text-left text-label font-normal text-muted uppercase">
                 {/* Column for special marks, but there's no need to give it a name */}
@@ -248,10 +248,7 @@ export function ResultsTable({ results }: ResultsTableProps) {
                         className: "w-4 h-4 text-muted",
                       },
                     )}
-                    <span>{result.weather.condition}</span>
-                    <span className="text-xs text-muted">
-                      (feels like {result.weather.feelsLike}°C)
-                    </span>
+                    <span>{result.weather.condition} ({result.weather.feelsLike}°C)</span>
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-cell text-muted">
