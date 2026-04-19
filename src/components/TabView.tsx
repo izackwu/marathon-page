@@ -18,7 +18,7 @@ export function TabView({ results }: TabViewProps) {
           <button
             onClick={() => setActiveTab("map")}
             className={`
-              flex-1 py-4 px-1 text-center border-b-2 font-medium text-sm
+              py-3 px-5 border-b-2 font-medium text-sm
               ${
                 activeTab === "map"
                   ? "border-primary text-primary"
@@ -26,15 +26,15 @@ export function TabView({ results }: TabViewProps) {
               }
             `}
           >
-            <div className="flex items-center justify-center gap-2">
-              <Map className="w-5 h-5" />
+            <div className="flex items-center gap-2">
+              <Map className="w-4 h-4" />
               <span>Map View</span>
             </div>
           </button>
           <button
             onClick={() => setActiveTab("chart")}
             className={`
-              flex-1 py-4 px-1 text-center border-b-2 font-medium text-sm
+              py-3 px-5 border-b-2 font-medium text-sm
               ${
                 activeTab === "chart"
                   ? "border-primary text-primary"
@@ -42,20 +42,20 @@ export function TabView({ results }: TabViewProps) {
               }
             `}
           >
-            <div className="flex items-center justify-center gap-2">
-              <LineChart className="w-5 h-5" />
+            <div className="flex items-center gap-2">
+              <LineChart className="w-4 h-4" />
               <span>Progress Chart</span>
             </div>
           </button>
         </nav>
       </div>
-      <div className="p-4">
-        {activeTab === "map" ? (
-          <MapView results={results} />
-        ) : (
+      {activeTab === "map" ? (
+        <MapView results={results} />
+      ) : (
+        <div className="p-4">
           <TimeChart results={results} />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
