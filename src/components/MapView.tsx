@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
-import { groupBy } from "lodash";
 import countries from "i18n-iso-countries";
 import enLocale from "i18n-iso-countries/langs/en.json";
 import { MarathonResult } from "../types/marathon";
@@ -58,10 +57,11 @@ export function MapView({ results }: MapViewProps) {
     const H = 340;
 
     // Group results by location
-    const grouped = groupBy(
-      results,
-      (r) => `${r.location.coordinates.lat},${r.location.coordinates.lng}`,
-    );
+    const grouped: Record<string, MarathonResult[]> = {};
+    for (const r of results) {
+      const key = `${r.location.coordinates.lat},${r.location.coordinates.lng}`;
+      (grouped[key] ??= []).push(r);
+    }
 
     const cities: CityData[] = Object.values(grouped).map((races) => {
       const sorted = [...races].sort(
