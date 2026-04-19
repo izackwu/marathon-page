@@ -42,15 +42,15 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
               key={`${race.date}-${race.name}`}
               className="bg-card rounded-lg border-[0.5px] border-line p-4 hover:bg-page space-y-3"
             >
-              <div className="flex justify-between items-start">
-                <div>
+              <div className="flex justify-between items-start gap-2">
+                <div className="min-w-0">
                   <div className="text-xs text-muted">
                     {formatDate(race.date)}
                   </div>
                   <h3 className="font-medium text-heading">{race.name}</h3>
                 </div>
                 <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium whitespace-nowrap shrink-0 ${
                     race.type === "full"
                       ? "bg-primary-badge-bg text-primary-badge"
                       : "bg-[#F2F1EF] text-muted"
