@@ -1,109 +1,53 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Instructions for AI coding agents working in this repository.
 
 ## Essential Commands
 
-### Development
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint for code quality checks
-- `npm run pretty` - Format code with Prettier
+- `npm run dev` — start dev server with HMR
+- `npm run build` — production build (also type-checks)
+- `npm run lint` — ESLint
+- `npm run pretty` — Prettier (write mode)
 
-### Testing
-No test framework is configured. Tests should be added if needed.
+No test framework is configured.
 
-## Architecture Overview
+## Architecture
 
-This is a React + TypeScript + Vite application that displays marathon race results and statistics. The app is a single-page application with no routing, displaying different views through tabs.
+React 18 + TypeScript + Vite SPA displaying marathon race results and statistics. Single page, no router — views switch via tabs.
 
-### Core Data Flow
-1. **Data Sources**: Static data files in `src/data/` contain race results, upcoming races, and bio content
-2. **Statistics Calculation**: `App.tsx` calculates stats from marathon results on render
-3. **Component Hierarchy**: App → StatsCard, Bio, TabView, UpcomingRaces, ResultsTable, Footer
-4. **View Switching**: TabView component manages switching between table, chart, and map views
+### Data flow
 
-### Key Architecture Patterns
-- **Type Safety**: Strong TypeScript typing with branded types for dates/durations
-- **Data Centralization**: All race data centralized in `src/data/` files
-- **Utility Functions**: Shared utilities in `src/utils/` for formatting, calculations
-- **Component Composition**: Small, focused components with clear responsibilities
+Static data (`src/data/`) → `App.tsx` computes stats → components render views.
 
-## Technology Stack
+- `marathonResults.ts` — race results array
+- `upcomingRaces.ts` — upcoming races array
+- `locations.ts` — coordinate data for map pins
+- `bioContent.ts` — bio/about text
 
-### Core
-- **React 18** with functional components and hooks
-- **TypeScript** with strict typing
-- **Vite** for build tooling and dev server
-- **Tailwind CSS** for styling
+### Views (managed by `TabView`)
 
-### UI Libraries
-- **Chart.js** with react-chartjs-2 for time progression charts
-- **Leaflet** with react-leaflet for interactive maps
-- **Lucide React** for icons
-- **country-flag-icons** for country flags
+| View | Component | Library |
+|------|-----------|---------|
+| Table | `ResultsTable` | — |
+| Chart | `TimeChart` | Chart.js + react-chartjs-2 |
+| Map | `MapView` | D3 + topojson-client |
 
-### Data Processing
-- **date-fns** for date manipulation
-- **lodash** for utility functions
-- **i18n-iso-countries** for country code handling
+### Types (`src/types/marathon.ts`)
 
-## File Structure Patterns
-
-### Data Files (`src/data/`)
-- Export const arrays/objects with marathon results, upcoming races, bio content
-- Use proper TypeScript interfaces from `src/types/marathon.ts`
-
-### Components (`src/components/`)
-- Functional components with TypeScript interfaces for props
-- Export as named exports (not default)
-- Use Tailwind classes for styling
-
-### Utils (`src/utils/`)
-- Pure functions for calculations and formatting
-- Focused on single responsibilities (dates, pace, countries, etc.)
-
-### Types (`src/types/`)
-- Branded types for ISO date strings and durations
-- Interface definitions for all data structures
-- Special mark types for race annotations
-
-## Code Conventions
-
-### TypeScript
-- Use branded types for strings that need validation (dates, durations)
-- Define interfaces for all data structures
-- Prefer type unions over enums for simple categorization
-
-### React
-- Functional components with hooks
-- Props interfaces defined inline or in types file
-- Use React.memo() for performance optimization where needed
+Branded types: `ISODateString`, `DurationString` (string & tagged). All data structures use typed interfaces (`MarathonResult`, `UpcomingRace`, `MarathonStats`, `Location`, `SpecialMark`).
 
 ### Styling
-- Tailwind CSS classes exclusively
-- Responsive design with mobile-first approach
-- Consistent spacing and color schemes
 
-## Development Guidelines
+Tailwind CSS with custom color tokens defined in `tailwind.config.js`. Components read these tokens directly (e.g., `MapView` imports the config for D3 color values).
 
-### Adding New Race Data
-1. Update `src/data/marathonResults.ts` with new race entries
-2. Ensure all Location coordinates are added to `src/data/locations.ts`
-3. Follow the MarathonResult interface structure exactly
+## Adding Race Data
 
-### Adding New Components
-1. Create in `src/components/` with TypeScript interface for props
-2. Follow existing naming conventions (PascalCase)
-3. Use Tailwind for styling, maintain responsive design
-4. Export as named export
+1. Add entry to `src/data/marathonResults.ts` following the `MarathonResult` interface
+2. Add location coordinates to `src/data/locations.ts` if new venue
+3. For upcoming races, update `src/data/upcomingRaces.ts`
 
-### Data Processing
-- Use utility functions in `src/utils/` for calculations
-- Keep data transformation logic separate from components
-- Prefer immutable operations when manipulating arrays/objects
+## Git Conventions
 
-## Environment Variables
-- `VITE_SITE_TITLE` - Site title (configured in vite.config.ts)
-- No other environment variables currently used
+- Work on features in a separate branch or worktree, then create PRs with `gh pr create`.
+- Commit messages: concise single line, [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) format. Put details in PR descriptions, not commits.
+- No co-authorship or "generated by" lines in commits or PRs.
