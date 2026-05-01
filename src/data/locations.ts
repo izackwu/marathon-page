@@ -12,6 +12,11 @@ export const locations: Record<string, Location> = {
     coordinates: { lat: -33.8698439, lng: 151.2082848 },
     country: "Australia",
   },
+  gosford: {
+    name: "Gosford",
+    coordinates: { lat: -33.424098, lng: 151.341148 },
+    country: "Australia",
+  },
   goldCoast: {
     name: "Gold Coast",
     coordinates: { lat: -28.0023731, lng: 153.4145987 },

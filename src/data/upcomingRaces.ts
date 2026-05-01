@@ -4,6 +4,16 @@ import { createISODate } from "../utils/dateUtils";
 
 export const upcomingRaces: UpcomingRace[] = [
   {
+    name: "Bay to Bay Running Festival",
+    date: createISODate("2026-06-14"),
+    type: "half",
+    location: {
+      name: locations.gosford.name,
+      country: locations.gosford.country,
+    },
+    notes: "Tune-up race before Gold Coast",
+  },
+  {
     name: "Gold Coast Marathon",
     date: createISODate("2026-07-05"),
     type: "full",
