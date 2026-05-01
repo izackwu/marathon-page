@@ -79,7 +79,7 @@ export function UpcomingRaces({ races }: UpcomingRacesProps) {
                   <div className="text-muted uppercase text-label">
                     Notes
                   </div>
-                  <div className="text-body truncate">
+                  <div className="text-body">
                     {race.notes || "-"}
                   </div>
                 </div>
