@@ -10,6 +10,7 @@ export const upcomingRaces: UpcomingRace[] = [
     location: {
       name: locations.goldCoast.name,
       country: locations.goldCoast.country,
+      timezone: locations.goldCoast.timezone,
     },
     notes: "My favorite race in Australia",
   },

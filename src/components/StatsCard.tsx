@@ -62,7 +62,7 @@ export function StatsCard({ stats }: StatsCardProps) {
             <h3 className="text-label uppercase">First Race</h3>
           </div>
           <p className="text-lg font-medium text-heading">
-            {formatTimeAgo(stats.firstRaceDate)}
+            {formatTimeAgo(stats.firstRaceDate, stats.firstRaceTimeZone)}
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export function StatsCard({ stats }: StatsCardProps) {
             <h3 className="text-label uppercase">Last Race</h3>
           </div>
           <p className="text-lg font-medium text-heading">
-            {formatTimeAgo(stats.lastRaceDate)}
+            {formatTimeAgo(stats.lastRaceDate, stats.lastRaceTimeZone)}
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export function StatsCard({ stats }: StatsCardProps) {
           </div>
           <p className="text-lg font-medium text-heading">
             {stats.nextRaceDate
-              ? formatTimeAgo(stats.nextRaceDate)
+              ? formatTimeAgo(stats.nextRaceDate, stats.nextRaceTimeZone)
               : "No races scheduled"}
           </p>
         </div>
