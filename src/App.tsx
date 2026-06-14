@@ -19,7 +19,9 @@ function calculateStats(results: typeof marathonResults): MarathonStats {
   const halfMarathons = results.filter((r) => r.type === "half");
   const fullMarathons = results.filter((r) => r.type === "full");
 
-  const nextRace = upcomingRaces.length > 0 ? upcomingRaces[0].date : undefined;
+  const firstRace = sortedResults[0];
+  const lastRace = sortedResults[sortedResults.length - 1];
+  const nextRace = upcomingRaces.length > 0 ? upcomingRaces[0] : undefined;
 
   const bestHalfTime: DurationString | undefined =
     halfMarathons.length > 0
@@ -47,10 +49,13 @@ function calculateStats(results: typeof marathonResults): MarathonStats {
     totalRaces: results.length,
     bestHalfTime: isHalfTimeStale ? undefined : bestHalfTime,
     bestFullTime,
-    firstRaceDate: sortedResults[0].date,
-    lastRaceDate: sortedResults[sortedResults.length - 1].date,
+    firstRaceDate: firstRace.date,
+    firstRaceTimeZone: firstRace.location.timezone,
+    lastRaceDate: lastRace.date,
+    lastRaceTimeZone: lastRace.location.timezone,
     uniqueCountries: new Set(results.map((r) => r.location.country)).size,
-    nextRaceDate: nextRace,
+    nextRaceDate: nextRace?.date,
+    nextRaceTimeZone: nextRace?.location.timezone,
   };
 }
 

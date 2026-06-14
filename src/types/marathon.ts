@@ -8,6 +8,9 @@ export interface Location {
     lng: number;
   };
   country: string;
+  // IANA time zone identifier (e.g. "Asia/Singapore") used to interpret race
+  // dates in the venue's local time rather than the page viewer's time zone.
+  timezone: string;
 }
 
 // define a variant type of special marks, like `PB`, `Hilly_course`, `Injury`, `World_major`, `First_time` etc. Each of these should have an optional description.
@@ -41,9 +44,12 @@ export interface MarathonStats {
   bestHalfTime?: DurationString;
   bestFullTime?: DurationString;
   firstRaceDate: ISODateString;
+  firstRaceTimeZone: string;
   lastRaceDate: ISODateString;
+  lastRaceTimeZone: string;
   uniqueCountries: number;
   nextRaceDate?: ISODateString;
+  nextRaceTimeZone?: string;
 }
 
 export interface UpcomingRace {

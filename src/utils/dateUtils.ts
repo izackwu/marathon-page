@@ -1,6 +1,7 @@
 import {
   format,
-  formatDistanceToNow,
+  formatDistance,
+  differenceInCalendarDays,
   parseISO,
   isValid,
   parse,
@@ -15,12 +16,38 @@ export function formatDate(dateString: ISODateString): string {
   return format(date, "yyyy-MM-dd");
 }
 
-export function formatTimeAgo(dateString: ISODateString): string {
+export function formatTimeAgo(
+  dateString: ISODateString,
+  timeZone: string,
+): string {
   const date = parseISO(dateString);
   if (!isValid(date)) {
     throw new Error(`Invalid date string: ${dateString}`);
   }
-  return formatDistanceToNow(date, { addSuffix: true });
+  // Race dates only have day-level granularity (no time of day), so an
+  // hour-precise distance like "about 6 hours ago" would imply accuracy we
+  // don't have. Compare whole calendar days instead, anchoring "today" to the
+  // race's own time zone.
+  const todayString = new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  const today = parseISO(todayString);
+
+  const calendarDayDiff = differenceInCalendarDays(today, date);
+  if (calendarDayDiff === 0) {
+    return "today";
+  }
+  if (calendarDayDiff === 1) {
+    return "yesterday";
+  }
+  if (calendarDayDiff === -1) {
+    return "tomorrow";
+  }
+  // Both dates are local midnight, so the distance is a whole number of days.
+  return formatDistance(date, today, { addSuffix: true });
 }
 
 export function formatDuration(duration: DurationString): string {
