@@ -197,4 +197,21 @@ export const marathonResults: MarathonResult[] = [
       },
     ],
   },
+  {
+    name: "Bay to Bay Running Festival",
+    date: createISODate("2026-06-14"),
+    type: "half",
+    finishTime: createDuration("01:29:34"),
+    location: locations.gosford,
+    weather: {
+      feelsLike: 15,
+      condition: "Cloudy",
+    },
+    specialMarks: [
+      {
+        type: "PB",
+        description: "New half marathon Personal Best! Big breakthrough.",
+      },
+    ],
+  },
 ];
