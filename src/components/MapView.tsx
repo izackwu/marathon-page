@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
+import type { Feature, GeometryObject } from "geojson";
+import type { GeometryCollection, Topology } from "topojson-specification";
 import countries from "i18n-iso-countries";
 import enLocale from "i18n-iso-countries/langs/en.json";
 import { MarathonResult } from "../types/marathon";
@@ -192,17 +194,21 @@ export function MapView({ results }: MapViewProps) {
       .style("z-index", "10");
 
     // Load world data and render
-    d3.json(
+    d3.json<Topology>(
       "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json",
-    ).then((world: any) => {
-      const countries_geo = topojson.feature(world, world.objects.countries);
+    ).then((world) => {
+      if (!world) return;
+      const countries_geo = topojson.feature(
+        world,
+        world.objects.countries as GeometryCollection,
+      );
 
       gLand
         .selectAll("path")
-        .data((countries_geo as any).features)
+        .data(countries_geo.features)
         .enter()
         .append("path")
-        .attr("d", path as any)
+        .attr("d", path)
         .attr("fill", COLOR_LAND)
         .attr("stroke", COLOR_LAND_STROKE)
         .attr("stroke-width", 0.5);
@@ -210,8 +216,8 @@ export function MapView({ results }: MapViewProps) {
       // Country labels — geographic centroid from TopoJSON, with fallback
       // to race location coordinates for small territories (HK, Singapore)
       // Group features by country, then use the largest polygon for centroid
-      const countryFeatures = (countries_geo as any).features as any[];
-      const featuresByCountry = new Map<string, any[]>();
+      const countryFeatures = countries_geo.features;
+      const featuresByCountry = new Map<string, Feature<GeometryObject>[]>();
 
       for (const feature of countryFeatures) {
         const numericId = feature.id?.toString();
