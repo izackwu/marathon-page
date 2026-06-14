@@ -207,11 +207,6 @@ export const marathonResults: MarathonResult[] = [
       feelsLike: 15,
       condition: "Cloudy",
     },
-    specialMarks: [
-      {
-        type: "PB",
-        description: "New half marathon Personal Best! Big breakthrough.",
-      },
-    ],
+    specialMarks: [{ type: "PB" }],
   },
 ];
