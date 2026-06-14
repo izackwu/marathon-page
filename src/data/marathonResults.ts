@@ -204,7 +204,7 @@ export const marathonResults: MarathonResult[] = [
     finishTime: createDuration("01:29:34"),
     location: locations.gosford,
     weather: {
-      feelsLike: 15,
+      feelsLike: 18,
       condition: "Cloudy",
     },
     specialMarks: [{ type: "PB" }],
