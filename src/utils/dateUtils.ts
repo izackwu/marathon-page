@@ -18,7 +18,7 @@ export function formatDate(dateString: ISODateString): string {
 
 export function formatTimeAgo(
   dateString: ISODateString,
-  timeZone?: string,
+  timeZone: string,
 ): string {
   const date = parseISO(dateString);
   if (!isValid(date)) {
@@ -27,15 +27,13 @@ export function formatTimeAgo(
   // Race dates only have day-level granularity (no time of day), so an
   // hour-precise distance like "about 6 hours ago" would imply accuracy we
   // don't have. Compare whole calendar days instead, anchoring "today" to the
-  // race's own time zone when known (falling back to the viewer's zone).
-  const todayString = timeZone
-    ? new Intl.DateTimeFormat("en-CA", {
-        timeZone,
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-      }).format(new Date())
-    : format(new Date(), "yyyy-MM-dd");
+  // race's own time zone.
+  const todayString = new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
   const today = parseISO(todayString);
 
   const calendarDayDiff = differenceInCalendarDays(today, date);

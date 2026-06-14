@@ -82,7 +82,7 @@ export function StatsCard({ stats }: StatsCardProps) {
             <h3 className="text-label uppercase">Next Race</h3>
           </div>
           <p className="text-lg font-medium text-heading">
-            {stats.nextRaceDate
+            {stats.nextRaceDate && stats.nextRaceTimeZone
               ? formatTimeAgo(stats.nextRaceDate, stats.nextRaceTimeZone)
               : "No races scheduled"}
           </p>
