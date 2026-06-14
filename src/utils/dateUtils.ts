@@ -1,6 +1,7 @@
 import {
   format,
   formatDistanceToNow,
+  differenceInCalendarDays,
   parseISO,
   isValid,
   parse,
@@ -19,6 +20,19 @@ export function formatTimeAgo(dateString: ISODateString): string {
   const date = parseISO(dateString);
   if (!isValid(date)) {
     throw new Error(`Invalid date string: ${dateString}`);
+  }
+  // Race dates only have day-level granularity (no time or timezone), so
+  // showing an hour-precise distance like "about 6 hours ago" is misleading
+  // for nearby dates. Compare by calendar day and fall back to coarser labels.
+  const calendarDayDiff = differenceInCalendarDays(new Date(), date);
+  if (calendarDayDiff === 0) {
+    return "today";
+  }
+  if (calendarDayDiff === 1) {
+    return "yesterday";
+  }
+  if (calendarDayDiff === -1) {
+    return "tomorrow";
   }
   return formatDistanceToNow(date, { addSuffix: true });
 }
