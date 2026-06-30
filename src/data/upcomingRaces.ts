@@ -14,4 +14,14 @@ export const upcomingRaces: UpcomingRace[] = [
     },
     notes: "My favorite race in Australia",
   },
+  {
+    name: "Taipei Marathon",
+    date: createISODate("2026-12-20"),
+    type: "full",
+    location: {
+      name: locations.taipei.name,
+      country: locations.taipei.country,
+      timezone: locations.taipei.timezone,
+    },
+  },
 ];
