@@ -56,6 +56,12 @@ export const locations: Record<string, Location> = {
     country: "Japan",
     timezone: "Asia/Tokyo",
   },
+  osaka: {
+    name: "Osaka",
+    coordinates: { lat: 34.6937249, lng: 135.5022535 },
+    country: "Japan",
+    timezone: "Asia/Tokyo",
+  },
   taipei: {
     name: "Taipei",
     coordinates: { lat: 25.0375198, lng: 121.5636796 },

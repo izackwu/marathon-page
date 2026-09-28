@@ -13,4 +13,14 @@ export const upcomingRaces: UpcomingRace[] = [
       timezone: locations.taipei.timezone,
     },
   },
+  {
+    name: "Osaka Marathon",
+    date: createISODate("2027-02-28"),
+    type: "full",
+    location: {
+      name: locations.osaka.name,
+      country: locations.osaka.country,
+      timezone: locations.osaka.timezone,
+    },
+  },
 ];
